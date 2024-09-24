@@ -1,0 +1,213 @@
+﻿@{
+    var uniqueId = ViewData["id"];
+}
+
+<head>
+    <link rel="stylesheet" href="./css/" asp-append-version="true" />
+</head>
+<script src="http://localhost:5000/socket.io/socket.io.js"></script>
+
+<body>
+    <div class="container-turnos">
+        <div class="row mb-4">
+            <div class="logo" data-unique-id="@uniqueId">
+                <img src="https://via.placeholder.com/200x80?text=Logo" alt="Logo">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 turnos-table">
+                <div class="turno-row header-row">
+                    <div class="turno-cell"><strong>MODULO</strong></div>
+                    <div class="turno-cell"><strong>TURNO</strong></div>
+                    <div class="turno-cell"><strong>ESTADO</strong></div>
+                </div>
+                <!-- Agrega más filas según sea necesario -->
+            </div>
+            @await Html.PartialAsync("_SectionVideo")
+        </div>
+    </div>
+
+    <!-- Modal para mostrar el turno -->
+    <div id="turnoModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <h2>Turno</h2>
+            <p id="modalText" class="ticket-number"></p>
+            <p class="ticket-location">Consultorio</p>
+            <p id="consultorio" class="consultorio-number"></p>
+        </div>
+    </div>
+
+    <!-- Sonido de notificación -->
+    <audio id="notificationSound" src="https://res.cloudinary.com/dwjztzqzz/video/upload/v1725547370/etjexwyu8b7j34na3jr9.mp3" preload="auto"></audio>
+
+    <style>
+        /* Modal General */
+        .modal {
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Contenido del Modal */
+        .modal-content {
+            background: white;
+            color: black;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            width: 300px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+            .modal-content h2 {
+                margin-bottom: 10px;
+                font-size: 24px;
+            }
+
+            .modal-content .ticket-number {
+                font-size: 32px;
+                font-weight: bold;
+                margin: 10px 0;
+            }
+
+            .modal-content .ticket-location {
+                font-size: 18px;
+                margin: 10px 0;
+            }
+
+            .modal-content .consultorio-number {
+                font-size: 48px;
+                font-weight: bold;
+                margin: 10px 0;
+            }
+
+      
+    </style>
+
+    <script>
+        function updateLogoImage(uniqueId) {
+            const contenedorImg = document.querySelector(`.logo[data-unique-id="${uniqueId}"]`);
+            const apiUrl = `https://api-dev.oficinavirtual.com.co/empresas/IdEmpresa/${uniqueId}`;
+
+            fetch(apiUrl)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok ' + response.statusText);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data && data.empresas && data.empresas.length > 0 && data.empresas[0].ImgLogo && data.empresas[0].ImgLogo.Ruta) {
+                        const newImageUrl = data.empresas[0].ImgBanner.Ruta;
+                        contenedorImg.querySelector('img').src = newImageUrl;
+                    } else {
+                        throw new Error('Unexpected data structure');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching new image URL:', error);
+                });
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const uniqueId = '@uniqueId';
+
+            // Check if the page was reloaded
+            const pageReloaded = sessionStorage.getItem('pageReloaded');
+
+            if (!pageReloaded) {
+                updateLogoImage(uniqueId);
+                sessionStorage.setItem('pageReloaded', 'true');
+            }
+        });
+
+        // Clear the sessionStorage on window unload to reset the state for the next visit
+        window.addEventListener('beforeunload', function () {
+            sessionStorage.removeItem('pageReloaded');
+        });
+    </script>
+
+    <script>
+        // Conectar al servidor de Socket.IO
+        var socket = io.connect('http://localhost:5000'); // Conectar al servidor en el puerto 5000
+        const uniqueId = '@uniqueId';
+
+        // Obtener elementos del DOM
+        var modal = document.getElementById("turnoModal");
+        var modalText = document.getElementById("modalText");
+        var consultorioText = document.getElementById("consultorio");
+        var notificationSound = document.getElementById("notificationSound");
+
+        // Función para cerrar el modal
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        // Escuchar evento de conexión
+        socket.on('connect', function () {
+            console.log('Conectado al servidor de Socket.IO');
+
+            // Unirse al room de la empresa
+            socket.emit('joinRoom', uniqueId);
+
+            // Envía un mensaje al servidor
+            socket.emit('mensaje', 'Digiturno conectado a servidor socket.io');
+        });
+
+        // Escuchar mensajes del servidor
+        socket.on('respuesta', function (data) {
+            console.log('Respuesta del servidor:', data);
+        });
+
+        // Escuchar eventos personalizados
+        socket.on('actualizarTurno', function (turno) {
+            console.log('Nuevo turno recibido:', turno);
+
+            // Agregar la lógica para actualizar la tabla con los nuevos turnos
+            var turnosTable = document.querySelector('.turnos-table');
+
+            // Crear una nueva fila de turnos
+            var turnoRow = `
+                        <div class="turno-row">
+                            <div class="turno-cell">${turno.Consultorio}</div>
+                            <div class="turno-cell">${turno.NumberTurno}</div>
+                                    <div class="turno-cell estado-espera">${turno.EstadoTurno}</div>
+                        </div>`;
+
+            // Insertar la nueva fila después de la fila de encabezado
+            var headerRow = document.querySelector('.turnos-table .header-row');
+            headerRow.insertAdjacentHTML('afterend', turnoRow);
+
+            // Limitar el número de filas a 5 (sin contar la fila de encabezado)
+            var turnoRows = turnosTable.querySelectorAll('.turno-row:not(.header-row)');
+            if (turnoRows.length > 10) {
+                turnosTable.removeChild(turnoRows[turnoRows.length - 1]); // Eliminar la fila más antigua
+            }
+
+
+            // Mostrar el modal con la notificación
+            modalText.textContent = turno.NumberTurno;
+            consultorioText.textContent = turno.Consultorio;
+            modal.style.display = "flex";
+
+       
+            // Leer el turno y consultorio en voz alta
+            var speech = new SpeechSynthesisUtterance(`Turno ${turno.NumberTurno} a consultorio ${turno.Consultorio}`);
+
+            // Cerrar el modal cuando termine la lectura
+            speech.onend = function () {
+                closeModal();
+            };
+
+            window.speechSynthesis.speak(speech);
+        });
+    </script>
+</body>

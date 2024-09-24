@@ -1,0 +1,33 @@
+﻿@{
+    var uniqueId = ViewData["id"];
+}
+
+<div class="col-md-8 video-section">
+    <video id="videoPlayer" autoplay muted>
+        <source id="videoSource" src="https://res.cloudinary.com/dvwlvlwce/video/upload/v1722265904/xkgfuudo9kroxpkirxlb.mp4" type="video/mp4">
+        Tu navegador no soporta la etiqueta de video.
+    </video>
+</div>
+
+<script>
+    const videoPlayer = document.getElementById('videoPlayer');
+    const videoSource = document.getElementById('videoSource');
+
+    const videoArray = [
+        "https://res.cloudinary.com/dvwlvlwce/video/upload/v1722265904/xkgfuudo9kroxpkirxlb.mp4",
+        "https://res.cloudinary.com/dvwlvlwce/video/upload/v1722009541/y3uotqmxtbcfwuf8nvit.mp4",
+        "https://res.cloudinary.com/dvwlvlwce/video/upload/v1722265902/i4heierkfgjl9ampav1q.mp4",
+        "https://res.cloudinary.com/dvwlvlwce/video/upload/v1722266403/pey2vlceyubkgrirw4jr.mp4"
+    ];
+    let currentVideoIndex = 0;
+
+    videoPlayer.addEventListener('ended', () => {
+        currentVideoIndex = (currentVideoIndex + 1) % videoArray.length;
+        videoSource.src = videoArray[currentVideoIndex];
+        videoPlayer.load();
+        videoPlayer.play();
+    });
+    // Iniciar el primer video
+    videoPlayer.load();
+    videoPlayer.play();
+</script>

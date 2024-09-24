@@ -1,0 +1,202 @@
+﻿@{
+    var uniqueId = ViewData["id"];
+    ViewData["Title"] = "Dashboard";
+}
+<script src="http://localhost:5000/socket.io/socket.io.js"></script>
+
+
+<div class="container-dashboard">
+    <header>
+        <div class="search-bar">
+            <input type="text" placeholder="Buscar">
+        </div>
+        <div class="user-info">
+            <p><span>@ViewData["Greeting"]</span>, <span id="user-name">Jhoe Doe</span></p>
+            <div class="icons">
+                <i class="bell-icon"></i>
+                <i class="settings-icon"></i>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="tickets-header">
+            <h2>Turnos</h2>
+            <p>Últimos turnos ingresados registrados en la plataforma</p>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Número</th>
+                    <th>Estado</th>
+                    <th>Paciente</th>
+                    <th>Operación</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Más filas aquí -->
+            </tbody>
+        </table>
+    </main>
+</div>
+
+<script>
+    // Conectar al servidor de Socket.IO
+    var socket = io.connect('http://localhost:5000'); // Conectar al servidor en el puerto 5000
+    const uniqueId = '@uniqueId';
+
+    // Extraer datos de localStorage
+    const nombreCompleto = localStorage.getItem('NombreCompleto');
+    const especialidad = localStorage.getItem('Especialidad');
+    const consultorio = localStorage.getItem('Consultorio');
+
+    // Reemplazar "Jhoe Doe" con el nombre extraído
+    if (nombreCompleto) {
+        document.getElementById('user-name').textContent = nombreCompleto;
+    }
+
+    // Escuchar evento de conexión
+    socket.on('connect', function () {
+        console.log('Conectado al servidor de Socket.IO');
+
+        // Unirse al room de la empresa
+        socket.emit('joinRoom', uniqueId);
+
+        // Envía un mensaje al servidor
+        socket.emit('mensaje', 'Digiturno conectado a servidor socket.io');
+
+        // Construir la URL de la API con la especialidad y hacer la solicitud
+        const apiUrl = `http://localhost:5000/api/digiturno/listar/${uniqueId}/${especialidad}`;
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                console.log('Datos recibidos de la API:', data);
+                // Aquí procesamos los datos recibidos de la API y actualizamos la tabla
+                data.forEach(turno => {
+                    agregarTurnoATabla(turno);
+                });
+            })
+            .catch(error => {
+                console.error('Error al realizar la solicitud a la API:', error);
+            });
+    });
+
+    // Función para agregar un turno a la tabla
+    function agregarTurnoATabla(turno) {
+        if (turno.Especialidad === especialidad) {
+            var table = document.querySelector('tbody');
+            var row = `<tr>
+                          <td>${turno.NumberTurno}</td>
+                          <td class="${turno.EstadoTurno}">${turno.EstadoTurno}</td>
+                          <td>${turno.TipoDocumento} - ${turno.NumeroDocumento}</td>
+                          <td>${turno.Especialidad}</td>
+                          <td>
+                              <button class="btn-llamar">Llamar</button>
+                              <button class="btn-atender">Atendido</button>
+                          </td>
+                      </tr>`;
+            table.insertAdjacentHTML('beforeend', row);
+            var filaReciente = table.lastElementChild;
+
+            // Asignar las funciones a los botones
+            var botonLlamar = filaReciente.querySelector('.btn-llamar');
+            var botonAtender = filaReciente.querySelector('.btn-atender');
+
+            botonLlamar.addEventListener('click', function () {
+                console.log('Llamando al turno:', turno.NumberTurno);
+                const objData = {
+                    NumberTurno: turno.NumberTurno,
+                    Consultorio: consultorio,
+                    EstadoTurno: "Atendiendo",
+                    uniqueId: uniqueId
+                };
+                socket.emit('llamarTurno', objData);
+                filaReciente.querySelector('td:nth-child(2)').textContent = 'Atendiendo';
+                filaReciente.querySelector('td:nth-child(2)').className = 'Atendiendo';
+            });
+
+            botonAtender.addEventListener('click', function () {
+                console.log('Atendiendo al turno:', turno.NumberTurno);
+                // Lógica adicional para el botón "Atender"
+            });
+        }
+    }
+
+    // Escuchar mensajes del servidor
+    socket.on('respuesta', function (data) {
+        console.log('Respuesta del servidor:', data);
+    });
+
+    // Escuchar eventos personalizados
+    socket.on('nuevoTurno', function (turno) {
+        console.log('Nuevo turno recibido:', turno);
+        agregarTurnoATabla(turno);
+    });
+
+    socket.on('actualizarTurno', function (turnoActualizado) {
+        console.log('Turno actualizado:', turnoActualizado);
+        var filas = document.querySelectorAll('tbody tr');
+        filas.forEach(fila => {
+            var numeroTurno = fila.querySelector('td:first-child').textContent;
+            if (numeroTurno === turnoActualizado.NumberTurno) {
+                fila.querySelector('td:nth-child(2)').textContent = turnoActualizado.EstadoTurno;
+                fila.querySelector('td:nth-child(2)').className = turnoActualizado.EstadoTurno;
+            }
+        });
+    });
+
+    // Manejar la desconexión
+    socket.on('disconnect', function () {
+        console.log('Desconectado del servidor de Socket.IO');
+    });
+
+
+</script>
+
+<script>
+   
+
+  
+</script>
+
+    <style>
+    /* Estilo base para los botones */
+    button {
+        padding: 8px 16px;
+        margin: -1px;
+        border: none;
+        border-radius: 40px;
+        cursor: pointer;
+        font-size: 12px;
+        transition: background-color 0.3s, transform 0.2s;
+    }
+
+    /* Estilo para el botón "Llamar" */
+    .btn-llamar {
+        background-color: #007bff; /* Azul */
+        color: white;
+    }
+
+        .btn-llamar:hover {
+            background-color: #0056b3; /* Azul más oscuro */
+            transform: scale(1.05);
+        }
+
+    /* Estilo para el botón "Atender" */
+    .btn-atender {
+        background-color: #28a745; /* Verde */
+        color: white;
+    }
+
+        .btn-atender:hover {
+            background-color: #218838; /* Verde más oscuro */
+            transform: scale(1.05);
+        }
+
+    /* Opcional: Si deseas un estilo diferente cuando el botón esté presionado */
+    button:active {
+        transform: scale(0.95);
+        opacity: 0.9;
+    }
+
+    </style>

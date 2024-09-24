@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Inicio";
+    var uniqueId = ViewData["id"];
+}
+
+<head>
+    <link rel="stylesheet" href="./css/Home.css" asp-append-version="true" />
+</head>
+<div class="contenedor-home">  
+    @await Html.PartialAsync("_LogoEmpresa")
+    <div class="conetenedor-opciones">
+        <h2>¿Qué deseas hacer hoy?</h2>
+        <button onclick="location.href='@Url.Action("AsignarCita", "Home", new { id = uniqueId })'">Asignar cita</button>
+        <button onclick="location.href='@Url.Action("ConfirmarCita", "Home", new { id = uniqueId })'">Confirmar cita</button>
+    </div>
+   
+</div>

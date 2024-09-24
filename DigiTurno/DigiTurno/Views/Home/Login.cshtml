@@ -1,0 +1,71 @@
+﻿@{
+    ViewData["Title"] = "Login";
+    var uniqueId = ViewData["id"];
+}
+
+<head>
+    <link rel="stylesheet" href="./css/Home.css" asp-append-version="true" />
+</head>
+<div class="contenedor-home">
+    @await Html.PartialAsync("_LogoEmpresa")
+    <div class="conetenedor-opciones">
+        <h3>Bienvenido de vuelta</h3>
+        <label>Usuario</label>
+        <input id="user" type="text" placeholder="JhoeDoe@correo.com" />
+        <label>Contraseña</label>
+        <input id="pass" type="password" placeholder="********" />
+        <label>Consultorio</label>
+        <select id="consultorio">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+        </select>
+        <button onclick="submitForm()">Ingresar</button>
+    </div>
+</div>
+
+<script>
+    async function submitForm() {
+        const uniqueId = '@uniqueId';
+        const user = document.getElementById('user').value;
+        const pass = document.getElementById('pass').value;
+        const consultorio = document.getElementById('consultorio').value;
+
+        const data = {
+            Email: user,
+            PassWord: pass,
+        };
+
+        try {
+            const response = await fetch('http://localhost:5000/api/medico/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+
+            if (response.ok) {
+                const result = await response.json();
+
+                // Guardar los datos en localStorage
+                localStorage.setItem('NombreCompleto', result.data.NombreCompleto);
+                localStorage.setItem('Especialidad', result.data.Especialidad);
+                localStorage.setItem('Consultorio', consultorio);
+
+                // Redirigir al dashboard con el ID único
+                window.location.href = `/dassboard/${uniqueId}`;
+            } else {
+                console.log('Error en la autenticación.');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
+</script>

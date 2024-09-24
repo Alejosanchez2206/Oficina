@@ -1,0 +1,327 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    background-image: url(../img/Fondo.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.contenedor-home {
+    display: flex;
+    flex-direction: column;
+    background-color: aliceblue;
+    margin-top: 15%;
+    margin-left: 25%;
+    margin-right: 25%;
+    border-radius: 20px;
+}
+
+.card-contenedor {
+    height: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: row
+}
+
+.contenedor-img {
+    flex-direction: row;
+    margin-top: -12%;
+    padding: 10px;
+    background-color: aliceblue;
+    border-radius: 50%
+}
+
+    .contenedor-img img {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%
+    }
+
+.conetenedor-opciones {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 25px;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 10%
+}
+
+    .conetenedor-opciones h2 {
+        text-align: center;
+        font-family: "Roboto", sans-serif;
+        font-weight: 400;
+        font-style: initial;
+        margin-bottom: 10%
+    }
+
+    .conetenedor-opciones h3 {
+        text-align: center;
+        font-family: "Roboto", sans-serif;
+    }
+
+    .conetenedor-opciones button {
+        font-family: "Roboto", sans-serif;
+        font-weight: bold;
+        font-style: initial;
+        justify-content: center;
+        flex-direction: column;
+        margin-top: 30px;
+        padding: 10px;
+        border-radius: 20px;
+        background: rgb(225, 236, 252);
+    }
+
+    .conetenedor-opciones label {
+        font-family: "Roboto", sans-serif;
+        font-weight: 400;
+        font-style: initial;
+        margin-bottom : 5px
+    }
+
+    .conetenedor-opciones select {
+        font-family: "Roboto", sans-serif;
+        font-weight: 400;
+        font-style: initial;
+        padding : 10px;
+        border-radius : 5px;
+        margin-bottom : 5px
+    }
+
+    .conetenedor-opciones input {
+        font-family: "Roboto", sans-serif;
+        font-weight: 400;
+        font-style: initial;
+        padding: 10px;
+        border-radius : 5px;
+        margin-bottom : 10px;
+        text-decoration : none
+    }
+
+.contenedor-button button {
+    display: inline-block;
+    padding: 10px;
+    width: 150px;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    font-style: initial;
+    border-bottom-left-radius: 40px;
+    background-color: rgb(196, 175, 128);
+    color: aliceblue;
+    border: none;
+    outline: none;
+    font-size : 20px
+}
+
+.fixed-btn {
+    position: absolute; /* Hace que el botón esté fijo en el contenedor relativo */
+    top: 0; /* Ajusta la distancia desde la parte superior */
+    right: 0; /* Ajusta la distancia desde la derecha */
+
+}
+
+.container-turnos {
+    margin : 0px;
+    padding : 0px;
+    height : auto;
+    width : 100%;
+    height : 100%
+}
+
+.turnos-table {
+    background-color: #e0eafc;
+    border-radius: 10px;
+    padding: 20px;   
+  
+}
+
+.turno-row {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.turno-cell {
+    flex: 1;
+    text-align: center;
+}
+
+.estado-espera {
+    background-color: #ffc107;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+.estado-remitido {
+    background-color: #6c757d;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+.logo{
+    width : 100%
+}
+
+
+    .logo img {
+        width: 20%;
+        height: 139px;
+        border-radius: 10px;
+    }
+
+.video-section img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.noticias {
+    background-color: #0d6efd;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+
+.container-dashboard {
+    width: 100%;
+    height : 100%;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+header {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.search-bar input {
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    width: 250px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+    .user-info p {
+        margin: 0;
+        margin-right: 15px;
+    }
+
+    .user-info span {
+        font-weight: bold;
+    }
+
+.icons {
+    display: flex;
+}
+
+    .icons i {
+        margin-left: 10px;
+        cursor: pointer;
+    }
+
+main {
+    padding: 20px;
+}
+
+.tickets-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+    .tickets-header h2 {
+        margin: 0;
+    }
+
+    .tickets-header p {
+        margin: 0;
+        color: #888;
+    }
+
+.add-button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+thead th {
+    text-align: left;
+    background-color: #f4f4f4;
+    padding: 10px;
+}
+
+tbody td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.attending {
+    color: #4CAF50;
+}
+
+.canceled {
+    color: #f44336;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.edit-icon, .more-icon {
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+footer {
+    background-color: #ffffff;
+    text-align: center;
+    padding: 10px 0;
+    border-top: 1px solid #ddd;
+}
+
+video {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}

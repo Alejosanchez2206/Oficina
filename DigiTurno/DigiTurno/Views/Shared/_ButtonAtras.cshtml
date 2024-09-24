@@ -1,0 +1,8 @@
+﻿@* Views/Shared/_ButtonAtras.cshtml *@
+@{
+    var uniqueId = ViewData["id"];
+}
+
+<div class="contenedor-button">
+    <button onclick="location.href='@Url.Action("Index", "Home", new { id = uniqueId })'" class="fixed-btn">Regresar</button>
+</div>

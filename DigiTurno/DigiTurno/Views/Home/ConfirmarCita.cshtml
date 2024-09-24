@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Inicio";
+}
+
+<head>
+    <link rel="stylesheet" href="./css/Home.css" asp-append-version="true" />
+</head>
+@await Html.PartialAsync("_ButtonAtras")
+<div class="contenedor-home">
+    @await Html.PartialAsync("_LogoEmpresa")
+    <div class="conetenedor-opciones">
+        <h3>Ingresa tus datos para gestionar tu turno</h3>
+        <label>Tipo de documentos</label>
+        <select id="tipoDocumento">
+            <option value="Registro civil">Registro civil</option>
+            <option value="Tarjeta de identidad">Tarjeta de identidad</option>
+            <option value="Cedula de ciudadania">Cedula de ciudadania</option>
+        </select>
+        <label>Número de documento</label>
+        <input id="numeroDocumento" type="number" placeholder="123456789" />
+        <button onclick="submitForm()">Continuar</button>
+    </div>
+</div>
+
+<script>
+    async function submitForm() {
+        const tipoDocumento = document.getElementById('tipoDocumento').value;
+        const numeroDocumento = document.getElementById('numeroDocumento').value;
+
+        const data = {
+            TipoDocumento: tipoDocumento,
+            NumeroDocumento: numeroDocumento
+        };
+        console.log(data)
+    }
+</script>
