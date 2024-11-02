@@ -69,6 +69,16 @@ io.on('connection', (socket) => {
 
     });
 
+    socket.on('atenderTurno', async (data) => {
+        try {
+            console.log('Atendiendo turno:', data);
+            // Emitir un evento para actualizar a todos los clientes en la misma sala
+            io.to(data.uniqueId).emit('actualizarTurnoDasboard', data);
+        } catch (error) {
+            console.log(error);
+        }
+    });
+
     socket.on('disconnect', () => {
         console.log('Cliente desconectado');
     });

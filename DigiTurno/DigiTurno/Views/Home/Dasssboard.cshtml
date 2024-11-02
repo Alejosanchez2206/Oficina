@@ -70,7 +70,6 @@
         fetch(apiUrl)
             .then(response => response.json())
             .then(data => {
-                console.log('Datos recibidos de la API:', data);
                 // Aquí procesamos los datos recibidos de la API y actualizamos la tabla
                 data.forEach(turno => {
                     agregarTurnoATabla(turno);
@@ -107,17 +106,47 @@
                 const objData = {
                     NumberTurno: turno.NumberTurno,
                     Consultorio: consultorio,
-                    EstadoTurno: "Atendiendo",
+                    EstadoTurno: "En Atención",
                     uniqueId: uniqueId
                 };
+
                 socket.emit('llamarTurno', objData);
                 filaReciente.querySelector('td:nth-child(2)').textContent = 'Atendiendo';
                 filaReciente.querySelector('td:nth-child(2)').className = 'Atendiendo';
             });
 
             botonAtender.addEventListener('click', function () {
-                console.log('Atendiendo al turno:', turno.NumberTurno);
-                // Lógica adicional para el botón "Atender"
+                const objData = {
+                    NumberTurno: turno.NumberTurno,
+                    Consultorio: consultorio,
+                    EstadoTurno: "Atendido",
+                    uniqueId: uniqueId
+                };
+                const turnoId = turno._id; // ID del turno
+
+                fetch(`http://localhost:5000/api/digiturno/${turnoId}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(objData) // Convertir objData a JSON
+                })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Error al actualizar el turno: ' + response.statusText);
+                        }
+                        return response.json(); // Convertir la respuesta en JSON
+                    })
+                    .then(data => {
+                        console.log('Turno actualizado exitosamente:', data);
+                        socket.emit('atenderTurno', objData);
+                        filaReciente.querySelector('td:nth-child(2)').textContent = 'Atendido';
+                        filaReciente.querySelector('td:nth-child(2)').className = 'Atendido';
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+              
             });
         }
     }
@@ -145,6 +174,18 @@
         });
     });
 
+    socket.on('actualizarTurnoDasboard', function (turnoActualizado) {
+        console.log('Turno actualizado:', turnoActualizado);
+        var filas = document.querySelectorAll('tbody tr');
+        filas.forEach(fila => {
+            var numeroTurno = fila.querySelector('td:first-child').textContent;
+            if (numeroTurno === turnoActualizado.NumberTurno) {
+                fila.querySelector('td:nth-child(2)').textContent = turnoActualizado.EstadoTurno;
+                fila.querySelector('td:nth-child(2)').className = turnoActualizado.EstadoTurno;
+            }
+        });
+    });
+
     // Manejar la desconexión
     socket.on('disconnect', function () {
         console.log('Desconectado del servidor de Socket.IO');
@@ -153,11 +194,6 @@
 
 </script>
 
-<script>
-   
-
-  
-</script>
 
     <style>
     /* Estilo base para los botones */

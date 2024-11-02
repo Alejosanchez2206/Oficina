@@ -16,7 +16,6 @@ async function generarNumeroTurno(IdEmpresa, Prefijo) {
     }
   });
 
-  console.log(numeroTurno);
   if (numeroTurno.length === 0) {
     const newNumberTurno = new NumberTurno({
       IdEmpresa: IdEmpresa,

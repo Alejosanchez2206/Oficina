@@ -11,7 +11,7 @@
 <script>
     function updateLogoImage(uniqueId) {
     const contenedorImg = document.querySelector(`.contenedor-img[data-unique-id="${uniqueId}"]`);
-    const apiUrl = `https://api-dev.oficinavirtual.com.co/empresas/IdEmpresa/${uniqueId}`;
+        const apiUrl = `https://api.oficinavirtual.com.co/empresas/IdEmpresa/${uniqueId}`;
 
     fetch(apiUrl)
         .then(response => {

@@ -37,8 +37,7 @@
         </div>
     </div>
 
-    <!-- Sonido de notificación -->
-    <audio id="notificationSound" src="https://res.cloudinary.com/dwjztzqzz/video/upload/v1725547370/etjexwyu8b7j34na3jr9.mp3" preload="auto"></audio>
+    
 
     <style>
         /* Modal General */
@@ -135,79 +134,93 @@
         });
     </script>
 
-    <script>
-        // Conectar al servidor de Socket.IO
-        var socket = io.connect('http://localhost:5000'); // Conectar al servidor en el puerto 5000
-        const uniqueId = '@uniqueId';
+   <script>
+    // Conectar al servidor de Socket.IO
+    var socket = io.connect('http://localhost:5000'); // Conectar al servidor en el puerto 5000
+    const uniqueId = '@uniqueId';
 
-        // Obtener elementos del DOM
-        var modal = document.getElementById("turnoModal");
-        var modalText = document.getElementById("modalText");
-        var consultorioText = document.getElementById("consultorio");
-        var notificationSound = document.getElementById("notificationSound");
+    // Obtener elementos del DOM
+    var modal = document.getElementById("turnoModal");
+    var modalText = document.getElementById("modalText");
+    var consultorioText = document.getElementById("consultorio");
 
-        // Función para cerrar el modal
-        function closeModal() {
-            modal.style.display = "none";
+    // Función para cerrar el modal
+    function closeModal() {
+        modal.style.display = "none";
+        console.log("Modal cerrado.");
+    }
+
+    // Función para leer el turno y cerrar el modal después de un tiempo
+    function readAndCloseModal(turno) {
+        if ('speechSynthesis' in window) {
+            // Crear el objeto de síntesis de voz
+            const speech = new SpeechSynthesisUtterance(`Turno ${turno.NumberTurno} a consultorio ${turno.Consultorio}`);
+            console.log(`Iniciando lectura: Turno ${turno.NumberTurno} a consultorio ${turno.Consultorio}`);
+
+            // Iniciar la síntesis de voz
+            window.speechSynthesis.speak(speech);
+
+            // Cerrar el modal automáticamente después de 5 segundos (ajusta si es necesario)
+            setTimeout(() => {
+                closeModal();
+            }, 5000);
+        } else {
+            console.warn("El navegador no soporta la síntesis de voz.");
+            closeModal(); // Cierra el modal si la síntesis no es compatible
+        }
+    }
+
+    // Escuchar evento de conexión
+    socket.on('connect', function () {
+        console.log('Conectado al servidor de Socket.IO');
+
+        // Unirse al room de la empresa
+        socket.emit('joinRoom', uniqueId);
+
+        // Envía un mensaje al servidor
+        socket.emit('mensaje', 'Digiturno conectado a servidor socket.io');
+    });
+
+    // Escuchar mensajes del servidor
+    socket.on('respuesta', function (data) {
+        console.log('Respuesta del servidor:', data);
+    });
+
+    // Escuchar eventos personalizados
+    socket.on('actualizarTurno', function (turno) {
+        console.log('Nuevo turno recibido:', turno);
+
+        // Actualizar la tabla con los nuevos turnos
+        var turnosTable = document.querySelector('.turnos-table');
+
+        // Crear una nueva fila de turnos
+        var turnoRow = `
+            <div class="turno-row">
+                <div class="turno-cell">${turno.Consultorio}</div>
+                <div class="turno-cell">${turno.NumberTurno}</div>
+                <div class="turno-cell estado-espera">${turno.EstadoTurno}</div>
+            </div>`;
+
+        // Insertar la nueva fila después de la fila de encabezado
+        var headerRow = document.querySelector('.turnos-table .header-row');
+        headerRow.insertAdjacentHTML('afterend', turnoRow);
+
+        // Limitar el número de filas a 5 (sin contar la fila de encabezado)
+        var turnoRows = turnosTable.querySelectorAll('.turno-row:not(.header-row)');
+        if (turnoRows.length > 10) {
+            turnosTable.removeChild(turnoRows[turnoRows.length - 1]); // Eliminar la fila más antigua
         }
 
-        // Escuchar evento de conexión
-        socket.on('connect', function () {
-            console.log('Conectado al servidor de Socket.IO');
+        // Mostrar el modal con la notificación
+        modalText.textContent = turno.NumberTurno;
+        consultorioText.textContent = turno.Consultorio;
+        modal.style.display = "flex";
+        console.log("Modal mostrado con turno:", turno.NumberTurno);
 
-            // Unirse al room de la empresa
-            socket.emit('joinRoom', uniqueId);
-
-            // Envía un mensaje al servidor
-            socket.emit('mensaje', 'Digiturno conectado a servidor socket.io');
-        });
-
-        // Escuchar mensajes del servidor
-        socket.on('respuesta', function (data) {
-            console.log('Respuesta del servidor:', data);
-        });
-
-        // Escuchar eventos personalizados
-        socket.on('actualizarTurno', function (turno) {
-            console.log('Nuevo turno recibido:', turno);
-
-            // Agregar la lógica para actualizar la tabla con los nuevos turnos
-            var turnosTable = document.querySelector('.turnos-table');
-
-            // Crear una nueva fila de turnos
-            var turnoRow = `
-                        <div class="turno-row">
-                            <div class="turno-cell">${turno.Consultorio}</div>
-                            <div class="turno-cell">${turno.NumberTurno}</div>
-                                    <div class="turno-cell estado-espera">${turno.EstadoTurno}</div>
-                        </div>`;
-
-            // Insertar la nueva fila después de la fila de encabezado
-            var headerRow = document.querySelector('.turnos-table .header-row');
-            headerRow.insertAdjacentHTML('afterend', turnoRow);
-
-            // Limitar el número de filas a 5 (sin contar la fila de encabezado)
-            var turnoRows = turnosTable.querySelectorAll('.turno-row:not(.header-row)');
-            if (turnoRows.length > 10) {
-                turnosTable.removeChild(turnoRows[turnoRows.length - 1]); // Eliminar la fila más antigua
-            }
+        // Leer el turno y cerrar el modal después de la lectura
+        readAndCloseModal(turno);
+    });
+</script>
 
 
-            // Mostrar el modal con la notificación
-            modalText.textContent = turno.NumberTurno;
-            consultorioText.textContent = turno.Consultorio;
-            modal.style.display = "flex";
-
-       
-            // Leer el turno y consultorio en voz alta
-            var speech = new SpeechSynthesisUtterance(`Turno ${turno.NumberTurno} a consultorio ${turno.Consultorio}`);
-
-            // Cerrar el modal cuando termine la lectura
-            speech.onend = function () {
-                closeModal();
-            };
-
-            window.speechSynthesis.speak(speech);
-        });
-    </script>
 </body>
