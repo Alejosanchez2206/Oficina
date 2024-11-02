@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "n1aRaMjWKRQr26jcNNJg7qHYGltA5Eib5ZeuC342XC8zedZx6taBIZEL+p1kudRLXuYlZsUA+Xfltdq9UyfpKg==",
+  "dgSpecHash": "jsSRle0nL5MHFEhDWy/ngxQYM9NStXgSpurDaeTxcvsRSuCqlG7FsJaQQ0Fz3pFcoh8+KJmxEuR5sfujXsR9kg==",
   "success": true,
-  "projectFilePath": "F:\\Tiserium\\DigiTurno\\DigiTurno\\DigiTurno.csproj",
+  "projectFilePath": "F:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\DigiTurno.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Alejo\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.4\\microsoft.entityframeworkcore.8.0.4.nupkg.sha512",
     "C:\\Users\\Alejo\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\8.0.4\\microsoft.entityframeworkcore.abstractions.8.0.4.nupkg.sha512",

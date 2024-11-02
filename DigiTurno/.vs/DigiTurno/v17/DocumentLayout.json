@@ -1,58 +1,34 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "F:\\Tiserium\\DigiTurno\\",
+  "WorkspaceRootPath": "F:\\Tiserium\\Oficina\\DigiTurno\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7A6229DD-4E4B-4A50-B112-F9315EB6DC31}|DigiTurno\\DigiTurno.csproj|f:\\tiserium\\digiturno\\digiturno\\views\\home\\screenturno.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7A6229DD-4E4B-4A50-B112-F9315EB6DC31}|DigiTurno\\DigiTurno.csproj|solutionrelative:digiturno\\views\\home\\screenturno.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7A6229DD-4E4B-4A50-B112-F9315EB6DC31}|DigiTurno\\DigiTurno.csproj|f:\\tiserium\\digiturno\\digiturno\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7A6229DD-4E4B-4A50-B112-F9315EB6DC31}|DigiTurno\\DigiTurno.csproj|solutionrelative:digiturno\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7A6229DD-4E4B-4A50-B112-F9315EB6DC31}|DigiTurno\\DigiTurno.csproj|f:\\tiserium\\digiturno\\digiturno\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7A6229DD-4E4B-4A50-B112-F9315EB6DC31}|DigiTurno\\DigiTurno.csproj|solutionrelative:digiturno\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7A6229DD-4E4B-4A50-B112-F9315EB6DC31}|DigiTurno\\DigiTurno.csproj|f:\\tiserium\\digiturno\\digiturno\\views\\home\\dasssboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{7A6229DD-4E4B-4A50-B112-F9315EB6DC31}|DigiTurno\\DigiTurno.csproj|f:\\tiserium\\oficina\\digiturno\\digiturno\\views\\home\\dasssboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{7A6229DD-4E4B-4A50-B112-F9315EB6DC31}|DigiTurno\\DigiTurno.csproj|solutionrelative:digiturno\\views\\home\\dasssboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7A6229DD-4E4B-4A50-B112-F9315EB6DC31}|DigiTurno\\DigiTurno.csproj|f:\\tiserium\\digiturno\\digiturno\\views\\home\\asignarcita.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7A6229DD-4E4B-4A50-B112-F9315EB6DC31}|DigiTurno\\DigiTurno.csproj|solutionrelative:digiturno\\views\\home\\asignarcita.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{7A6229DD-4E4B-4A50-B112-F9315EB6DC31}|DigiTurno\\DigiTurno.csproj|f:\\tiserium\\oficina\\digiturno\\digiturno\\views\\home\\screenturno.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7A6229DD-4E4B-4A50-B112-F9315EB6DC31}|DigiTurno\\DigiTurno.csproj|solutionrelative:digiturno\\views\\home\\screenturno.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7A6229DD-4E4B-4A50-B112-F9315EB6DC31}|DigiTurno\\DigiTurno.csproj|f:\\tiserium\\digiturno\\digiturno\\views\\home\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7A6229DD-4E4B-4A50-B112-F9315EB6DC31}|DigiTurno\\DigiTurno.csproj|solutionrelative:digiturno\\views\\home\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7A6229DD-4E4B-4A50-B112-F9315EB6DC31}|DigiTurno\\DigiTurno.csproj|f:\\tiserium\\digiturno\\digiturno\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{7A6229DD-4E4B-4A50-B112-F9315EB6DC31}|DigiTurno\\DigiTurno.csproj|solutionrelative:digiturno\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7A6229DD-4E4B-4A50-B112-F9315EB6DC31}|DigiTurno\\DigiTurno.csproj|f:\\tiserium\\digiturno\\digiturno\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7A6229DD-4E4B-4A50-B112-F9315EB6DC31}|DigiTurno\\DigiTurno.csproj|solutionrelative:digiturno\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7A6229DD-4E4B-4A50-B112-F9315EB6DC31}|DigiTurno\\DigiTurno.csproj|f:\\tiserium\\digiturno\\digiturno\\views\\home\\confirmarcita.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7A6229DD-4E4B-4A50-B112-F9315EB6DC31}|DigiTurno\\DigiTurno.csproj|solutionrelative:digiturno\\views\\home\\confirmarcita.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7A6229DD-4E4B-4A50-B112-F9315EB6DC31}|DigiTurno\\DigiTurno.csproj|f:\\tiserium\\digiturno\\digiturno\\views\\shared\\_logoempresa.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{7A6229DD-4E4B-4A50-B112-F9315EB6DC31}|DigiTurno\\DigiTurno.csproj|f:\\tiserium\\oficina\\digiturno\\digiturno\\views\\shared\\_logoempresa.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{7A6229DD-4E4B-4A50-B112-F9315EB6DC31}|DigiTurno\\DigiTurno.csproj|solutionrelative:digiturno\\views\\shared\\_logoempresa.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7A6229DD-4E4B-4A50-B112-F9315EB6DC31}|DigiTurno\\DigiTurno.csproj|f:\\tiserium\\digiturno\\digiturno\\views\\shared\\_buttonatras.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7A6229DD-4E4B-4A50-B112-F9315EB6DC31}|DigiTurno\\DigiTurno.csproj|solutionrelative:digiturno\\views\\shared\\_buttonatras.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{7A6229DD-4E4B-4A50-B112-F9315EB6DC31}|DigiTurno\\DigiTurno.csproj|f:\\tiserium\\oficina\\digiturno\\digiturno\\views\\home\\asignarcita.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7A6229DD-4E4B-4A50-B112-F9315EB6DC31}|DigiTurno\\DigiTurno.csproj|solutionrelative:digiturno\\views\\home\\asignarcita.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7A6229DD-4E4B-4A50-B112-F9315EB6DC31}|DigiTurno\\DigiTurno.csproj|f:\\tiserium\\digiturno\\digiturno\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7A6229DD-4E4B-4A50-B112-F9315EB6DC31}|DigiTurno\\DigiTurno.csproj|solutionrelative:digiturno\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{7A6229DD-4E4B-4A50-B112-F9315EB6DC31}|DigiTurno\\DigiTurno.csproj|f:\\tiserium\\oficina\\digiturno\\digiturno\\views\\home\\confirmarcita.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7A6229DD-4E4B-4A50-B112-F9315EB6DC31}|DigiTurno\\DigiTurno.csproj|solutionrelative:digiturno\\views\\home\\confirmarcita.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7A6229DD-4E4B-4A50-B112-F9315EB6DC31}|DigiTurno\\DigiTurno.csproj|f:\\tiserium\\digiturno\\digiturno\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7A6229DD-4E4B-4A50-B112-F9315EB6DC31}|DigiTurno\\DigiTurno.csproj|solutionrelative:digiturno\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{7A6229DD-4E4B-4A50-B112-F9315EB6DC31}|DigiTurno\\DigiTurno.csproj|f:\\tiserium\\oficina\\digiturno\\digiturno\\views\\home\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7A6229DD-4E4B-4A50-B112-F9315EB6DC31}|DigiTurno\\DigiTurno.csproj|solutionrelative:digiturno\\views\\home\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7A6229DD-4E4B-4A50-B112-F9315EB6DC31}|DigiTurno\\DigiTurno.csproj|f:\\tiserium\\oficina\\digiturno\\digiturno\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7A6229DD-4E4B-4A50-B112-F9315EB6DC31}|DigiTurno\\DigiTurno.csproj|solutionrelative:digiturno\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -62,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -75,173 +51,110 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
-            }
-          ]
-        },
-        {
-          "DockedWidth": 564,
-          "SelectedChildIndex": 4,
-          "Children": [
+            },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{74946827-37a0-11d2-a273-00c04f8ef4ff}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AsignarCita.cshtml",
-              "DocumentMoniker": "F:\\Tiserium\\DigiTurno\\DigiTurno\\Views\\Home\\AsignarCita.cshtml",
-              "RelativeDocumentMoniker": "DigiTurno\\Views\\Home\\AsignarCita.cshtml",
-              "ToolTip": "F:\\Tiserium\\DigiTurno\\DigiTurno\\Views\\Home\\AsignarCita.cshtml",
-              "RelativeToolTip": "DigiTurno\\Views\\Home\\AsignarCita.cshtml",
-              "ViewState": "AQIAABoAAAAAAAAAAAAAAJIAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-03T14:55:14.018Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Dasssboard.cshtml",
-              "DocumentMoniker": "F:\\Tiserium\\DigiTurno\\DigiTurno\\Views\\Home\\Dasssboard.cshtml",
-              "RelativeDocumentMoniker": "DigiTurno\\Views\\Home\\Dasssboard.cshtml",
-              "ToolTip": "F:\\Tiserium\\DigiTurno\\DigiTurno\\Views\\Home\\Dasssboard.cshtml",
-              "RelativeToolTip": "DigiTurno\\Views\\Home\\Dasssboard.cshtml",
-              "ViewState": "AQIAAGIAAAAAAAAAAAAmwJAAAAALAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-03T14:10:20.836Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "site.css",
-              "DocumentMoniker": "F:\\Tiserium\\DigiTurno\\DigiTurno\\wwwroot\\css\\site.css",
-              "RelativeDocumentMoniker": "DigiTurno\\wwwroot\\css\\site.css",
-              "ToolTip": "F:\\Tiserium\\DigiTurno\\DigiTurno\\wwwroot\\css\\site.css",
-              "RelativeToolTip": "DigiTurno\\wwwroot\\css\\site.css",
-              "ViewState": "AQIAAJkAAAAAAAAAAAAAAKUAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-09-02T16:23:56.959Z"
+              "Name": "ST:0:0:{99b8fa2f-ab90-4f57-9c32-949f146f1914}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ScreenTurno.cshtml",
-              "DocumentMoniker": "F:\\Tiserium\\DigiTurno\\DigiTurno\\Views\\Home\\ScreenTurno.cshtml",
-              "RelativeDocumentMoniker": "DigiTurno\\Views\\Home\\ScreenTurno.cshtml",
-              "ToolTip": "F:\\Tiserium\\DigiTurno\\DigiTurno\\Views\\Home\\ScreenTurno.cshtml",
-              "RelativeToolTip": "DigiTurno\\Views\\Home\\ScreenTurno.cshtml",
-              "ViewState": "AQIAAH0AAAAAAAAAAAAqwIUAAAA2AAAA",
+              "Title": "Dasssboard.cshtml",
+              "DocumentMoniker": "F:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\Views\\Home\\Dasssboard.cshtml",
+              "RelativeDocumentMoniker": "DigiTurno\\Views\\Home\\Dasssboard.cshtml",
+              "ToolTip": "F:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\Views\\Home\\Dasssboard.cshtml",
+              "RelativeToolTip": "DigiTurno\\Views\\Home\\Dasssboard.cshtml",
+              "ViewState": "AQIAAHgAAAAAAAAAAAAAAH4AAABJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-08-26T21:22:16.672Z",
+              "WhenOpened": "2024-11-02T15:12:44.807Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "F:\\Tiserium\\DigiTurno\\DigiTurno\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "DigiTurno\\Controllers\\HomeController.cs",
-              "ToolTip": "F:\\Tiserium\\DigiTurno\\DigiTurno\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "DigiTurno\\Controllers\\HomeController.cs",
-              "ViewState": "AQIAAFUAAAAAAAAAAAAwwF8AAAAbAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-19T21:36:40.227Z"
+              "Title": "_LogoEmpresa.cshtml",
+              "DocumentMoniker": "F:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\Views\\Shared\\_LogoEmpresa.cshtml",
+              "RelativeDocumentMoniker": "DigiTurno\\Views\\Shared\\_LogoEmpresa.cshtml",
+              "ToolTip": "F:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\Views\\Shared\\_LogoEmpresa.cshtml",
+              "RelativeToolTip": "DigiTurno\\Views\\Shared\\_LogoEmpresa.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-01T20:27:57.702Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "F:\\Tiserium\\DigiTurno\\DigiTurno\\Program.cs",
-              "RelativeDocumentMoniker": "DigiTurno\\Program.cs",
-              "ToolTip": "F:\\Tiserium\\DigiTurno\\DigiTurno\\Program.cs",
-              "RelativeToolTip": "DigiTurno\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAhAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-22T15:41:43.157Z"
+              "Title": "ScreenTurno.cshtml",
+              "DocumentMoniker": "F:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\Views\\Home\\ScreenTurno.cshtml",
+              "RelativeDocumentMoniker": "DigiTurno\\Views\\Home\\ScreenTurno.cshtml",
+              "ToolTip": "F:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\Views\\Home\\ScreenTurno.cshtml",
+              "RelativeToolTip": "DigiTurno\\Views\\Home\\ScreenTurno.cshtml",
+              "ViewState": "AQIAAIkAAAAAAAAAAAAowJEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-01T20:27:45.939Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
               "Title": "Login.cshtml",
-              "DocumentMoniker": "F:\\Tiserium\\DigiTurno\\DigiTurno\\Views\\Home\\Login.cshtml",
+              "DocumentMoniker": "F:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\Views\\Home\\Login.cshtml",
               "RelativeDocumentMoniker": "DigiTurno\\Views\\Home\\Login.cshtml",
-              "ToolTip": "F:\\Tiserium\\DigiTurno\\DigiTurno\\Views\\Home\\Login.cshtml",
+              "ToolTip": "F:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\Views\\Home\\Login.cshtml",
               "RelativeToolTip": "DigiTurno\\Views\\Home\\Login.cshtml",
-              "ViewState": "AQIAACoAAAAAAAAAAAAAADoAAABBAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-26T14:54:16.422Z"
+              "WhenOpened": "2024-10-01T20:27:09.645Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 4,
               "Title": "ConfirmarCita.cshtml",
-              "DocumentMoniker": "F:\\Tiserium\\DigiTurno\\DigiTurno\\Views\\Home\\ConfirmarCita.cshtml",
+              "DocumentMoniker": "F:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\Views\\Home\\ConfirmarCita.cshtml",
               "RelativeDocumentMoniker": "DigiTurno\\Views\\Home\\ConfirmarCita.cshtml",
-              "ToolTip": "F:\\Tiserium\\DigiTurno\\DigiTurno\\Views\\Home\\ConfirmarCita.cshtml",
+              "ToolTip": "F:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\Views\\Home\\ConfirmarCita.cshtml",
               "RelativeToolTip": "DigiTurno\\Views\\Home\\ConfirmarCita.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAIAAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-08-13T14:13:02.067Z"
+              "WhenOpened": "2024-10-01T20:27:00.197Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "_LogoEmpresa.cshtml",
-              "DocumentMoniker": "F:\\Tiserium\\DigiTurno\\DigiTurno\\Views\\Shared\\_LogoEmpresa.cshtml",
-              "RelativeDocumentMoniker": "DigiTurno\\Views\\Shared\\_LogoEmpresa.cshtml",
-              "ToolTip": "F:\\Tiserium\\DigiTurno\\DigiTurno\\Views\\Shared\\_LogoEmpresa.cshtml",
-              "RelativeToolTip": "DigiTurno\\Views\\Shared\\_LogoEmpresa.cshtml",
-              "ViewState": "AQIAABUAAAAAAAAAAAAAACUAAAAEAAAA",
+              "DocumentIndex": 3,
+              "Title": "AsignarCita.cshtml",
+              "DocumentMoniker": "F:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\Views\\Home\\AsignarCita.cshtml",
+              "RelativeDocumentMoniker": "DigiTurno\\Views\\Home\\AsignarCita.cshtml",
+              "ToolTip": "F:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\Views\\Home\\AsignarCita.cshtml",
+              "RelativeToolTip": "DigiTurno\\Views\\Home\\AsignarCita.cshtml",
+              "ViewState": "AQIAAFcAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-08-13T13:14:10.289Z"
+              "WhenOpened": "2024-10-01T20:26:44.189Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "F:\\Tiserium\\DigiTurno\\DigiTurno\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "DigiTurno\\Views\\Home\\Index.cshtml",
-              "ToolTip": "F:\\Tiserium\\DigiTurno\\DigiTurno\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "DigiTurno\\Views\\Home\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-25T14:13:00.491Z"
-            },
+              "DocumentIndex": 6,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "F:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "DigiTurno\\Controllers\\HomeController.cs",
+              "ToolTip": "F:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "DigiTurno\\Controllers\\HomeController.cs",
+              "ViewState": "AQIAAFUAAAAAAAAAAAAwwF8AAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-01T20:24:43.976Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 564,
+          "SelectedChildIndex": -1,
+          "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "_ButtonAtras.cshtml",
-              "DocumentMoniker": "F:\\Tiserium\\DigiTurno\\DigiTurno\\Views\\Shared\\_ButtonAtras.cshtml",
-              "RelativeDocumentMoniker": "DigiTurno\\Views\\Shared\\_ButtonAtras.cshtml",
-              "ToolTip": "F:\\Tiserium\\DigiTurno\\DigiTurno\\Views\\Shared\\_ButtonAtras.cshtml",
-              "RelativeToolTip": "DigiTurno\\Views\\Shared\\_ButtonAtras.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAGAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-19T21:12:36.37Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "_ViewStart.cshtml",
-              "DocumentMoniker": "F:\\Tiserium\\DigiTurno\\DigiTurno\\Views\\_ViewStart.cshtml",
-              "RelativeDocumentMoniker": "DigiTurno\\Views\\_ViewStart.cshtml",
-              "ToolTip": "F:\\Tiserium\\DigiTurno\\DigiTurno\\Views\\_ViewStart.cshtml",
-              "RelativeToolTip": "DigiTurno\\Views\\_ViewStart.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-19T21:36:34.767Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "_ViewImports.cshtml",
-              "DocumentMoniker": "F:\\Tiserium\\DigiTurno\\DigiTurno\\Views\\_ViewImports.cshtml",
-              "RelativeDocumentMoniker": "DigiTurno\\Views\\_ViewImports.cshtml",
-              "ToolTip": "F:\\Tiserium\\DigiTurno\\DigiTurno\\Views\\_ViewImports.cshtml",
-              "RelativeToolTip": "DigiTurno\\Views\\_ViewImports.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-19T21:36:33.569Z"
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{74946827-37a0-11d2-a273-00c04f8ef4ff}"
             }
           ]
         }
