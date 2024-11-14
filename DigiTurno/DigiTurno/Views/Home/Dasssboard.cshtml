@@ -28,7 +28,7 @@
                 <tr>
                     <th>Número</th>
                     <th>Estado</th>
-                    <th>Paciente</th>
+                    <th>Datos del paciente</th>
                     <th>Operación</th>
                     <th>Acciones</th>
                 </tr>
@@ -71,7 +71,7 @@
             .then(response => response.json())
             .then(data => {
                 // Aquí procesamos los datos recibidos de la API y actualizamos la tabla
-                data.forEach(turno => {
+                data.data.forEach(turno => {
                     agregarTurnoATabla(turno);
                 });
             })
@@ -85,10 +85,10 @@
         if (turno.Especialidad === especialidad) {
             var table = document.querySelector('tbody');
             var row = `<tr>
-                          <td>${turno.NumberTurno}</td>
-                          <td class="${turno.EstadoTurno}">${turno.EstadoTurno}</td>
-                          <td>${turno.TipoDocumento} - ${turno.NumeroDocumento}</td>
-                          <td>${turno.Especialidad}</td>
+                                <td>${turno.Turno}-${turno.NroTurno}</td>
+                            <td class="${turno.EstadoTurno}">${turno.EstadoTurno}</td>
+                                <td>${turno.IdPaciente} - ${turno.Paciente} - ${(turno.FechaNacimiento).substring(0, 10)}</td>
+                            <td>${turno.Especialidad}</td>
                           <td>
                               <button class="btn-llamar">Llamar</button>
                               <button class="btn-atender">Atendido</button>
@@ -104,9 +104,10 @@
             botonLlamar.addEventListener('click', function () {
                 console.log('Llamando al turno:', turno.NumberTurno);
                 const objData = {
-                    NumberTurno: turno.NumberTurno,
+                    NumberTurno: turno.NroTurno,
                     Consultorio: consultorio,
                     EstadoTurno: "En Atención",
+                    Paciente : turno.Paciente,
                     uniqueId: uniqueId
                 };
 
@@ -117,9 +118,10 @@
 
             botonAtender.addEventListener('click', function () {
                 const objData = {
-                    NumberTurno: turno.NumberTurno,
+                    NumberTurno: turno.NroTurno,
                     Consultorio: consultorio,
                     EstadoTurno: "Atendido",
+                    Paciente: turno.Paciente,
                     uniqueId: uniqueId
                 };
                 const turnoId = turno._id; // ID del turno

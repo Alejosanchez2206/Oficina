@@ -18,8 +18,7 @@
             <div class="col-md-4 turnos-table">
                 <div class="turno-row header-row">
                     <div class="turno-cell"><strong>MODULO</strong></div>
-                    <div class="turno-cell"><strong>TURNO</strong></div>
-                    <div class="turno-cell"><strong>ESTADO</strong></div>
+                    <div class="turno-cell"><strong>PACIENTE</strong></div>
                 </div>
                 <!-- Agrega más filas según sea necesario -->
             </div>
@@ -29,8 +28,8 @@
 
     <!-- Modal para mostrar el turno -->
     <div id="turnoModal" class="modal" style="display:none;">
-        <div class="modal-content">
-            <h2>Turno</h2>
+        <div class="modal-content-turno">
+            <h2>Paciente</h2>
             <p id="modalText" class="ticket-number"></p>
             <p class="ticket-location">Consultorio</p>
             <p id="consultorio" class="consultorio-number"></p>
@@ -56,33 +55,33 @@
         }
 
         /* Contenido del Modal */
-        .modal-content {
+        .modal-content-turno {
             background: white;
             color: black;
             padding: 30px;
             border-radius: 15px;
             text-align: center;
-            width: 300px;
+            width: 600px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
-            .modal-content h2 {
+            .modal-content-turno h2 {
                 margin-bottom: 10px;
                 font-size: 24px;
             }
 
-            .modal-content .ticket-number {
+            .modal-content-turno .ticket-number {
                 font-size: 32px;
                 font-weight: bold;
                 margin: 10px 0;
             }
 
-            .modal-content .ticket-location {
+            .modal-content-turno .ticket-location {
                 font-size: 18px;
                 margin: 10px 0;
             }
 
-            .modal-content .consultorio-number {
+            .modal-content-turno .consultorio-number {
                 font-size: 48px;
                 font-weight: bold;
                 margin: 10px 0;
@@ -94,7 +93,7 @@
     <script>
         function updateLogoImage(uniqueId) {
             const contenedorImg = document.querySelector(`.logo[data-unique-id="${uniqueId}"]`);
-            const apiUrl = `https://api-dev.oficinavirtual.com.co/empresas/IdEmpresa/${uniqueId}`;
+            const apiUrl = `https://api.oficinavirtual.com.co/empresas/IdEmpresa/${uniqueId}`;
 
             fetch(apiUrl)
                 .then(response => {
@@ -154,7 +153,7 @@
     function readAndCloseModal(turno) {
         if ('speechSynthesis' in window) {
             // Crear el objeto de síntesis de voz
-            const speech = new SpeechSynthesisUtterance(`Turno ${turno.NumberTurno} a consultorio ${turno.Consultorio}`);
+                const speech = new SpeechSynthesisUtterance(`Paciente ${turno.Paciente} por favor dirigirse al  ${turno.Consultorio}`);
             console.log(`Iniciando lectura: Turno ${turno.NumberTurno} a consultorio ${turno.Consultorio}`);
 
             // Iniciar la síntesis de voz
@@ -197,8 +196,7 @@
         var turnoRow = `
             <div class="turno-row">
                 <div class="turno-cell">${turno.Consultorio}</div>
-                <div class="turno-cell">${turno.NumberTurno}</div>
-                <div class="turno-cell estado-espera">${turno.EstadoTurno}</div>
+                <div class="turno-cell">${turno.Paciente}</div>             
             </div>`;
 
         // Insertar la nueva fila después de la fila de encabezado
@@ -212,7 +210,7 @@
         }
 
         // Mostrar el modal con la notificación
-        modalText.textContent = turno.NumberTurno;
+        modalText.textContent = turno.Paciente;
         consultorioText.textContent = turno.Consultorio;
         modal.style.display = "flex";
         console.log("Modal mostrado con turno:", turno.NumberTurno);

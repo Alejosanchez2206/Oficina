@@ -54,8 +54,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9CdXR0b25BdHJhcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[F:/Tiserium/Oficina/DigiTurno/DigiTurno/Views/Shared/_FormularioTurno.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Gb3JtdWxhcmlvVHVybm8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/Tiserium/Oficina/DigiTurno/DigiTurno/Views/Shared/_LogoEmpresa.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dvRW1wcmVzYS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Tiserium/Oficina/DigiTurno/DigiTurno/Views/Shared/_ModalAdicionales.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Nb2RhbEFkaWNpb25hbGVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Tiserium/Oficina/DigiTurno/DigiTurno/Views/Shared/_ModalTurno.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Nb2RhbFR1cm5vLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/Tiserium/Oficina/DigiTurno/DigiTurno/Views/Shared/_SectionVideo.cshtml]

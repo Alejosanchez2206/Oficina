@@ -7,140 +7,17 @@
 <script src="http://localhost:5000/socket.io/socket.io.js"></script>
 
 <div class="contenedor-home">
-    @await Html.PartialAsync("_LogoEmpresa")   
-    <div class="conetenedor-opciones">
-        <h3>Ingresa tus datos para gestionar tu turno</h3>
-        <label>Tipo de documentos</label>
-        <select id="tipoDocumento">
-            <option value="RC">Registro civil</option>
-            <option value="TI">Tarjeta de identidad</option>
-            <option value="CC">Cedula de ciudadania</option>
-        </select>
-        <label>Especialista</label>
-        <select id="especialidad">
-            <option value="Medicina interna">Medicina interna</option>
-            <option value="Medicina Externa">Medicina Externa</option>
-            <option value="Psicologia">Psicologia</option>
-        </select>
-        <label>Número de documento</label>
-        <input id="numeroDocumento" type="number" placeholder="123456789" />
-        <button onclick="submitForm()">Continuar</button>
-    </div>  
+    @await Html.PartialAsync("_LogoEmpresa")
+    @await Html.PartialAsync("_FormularioTurno")
 </div>
 
-<!-- Modal -->
-<div id="turnoModal" class="modal" style="display:none;">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <h2>Tu número de turno es</h2>
-        <p class="numeroTurnoText" id="numeroTurno"></p>
-        <p>Por favor, espera a que te llamen.</p>
-    </div>
-</div>
+@await Html.PartialAsync("_ModalTurno")
+@await Html.PartialAsync("_ModalAdicionales")
+
+<script src="~/js/turnoForm.js"></script>
+<link rel="stylesheet" href="~/css/modals.css" />
 
 <script>
-    const uniqueId = '@uniqueId';
-    const socket = io('http://localhost:5000'); // Asegúrate de que esta URL apunta a tu servidor Socket.IO
-
-    async function submitForm() {
-        const tipoDocumento = document.getElementById('tipoDocumento').value;
-        const numeroDocumento = document.getElementById('numeroDocumento').value;
-        const especialidad = document.getElementById('especialidad').value;
-        const empresaId = uniqueId; // Asegúrate de que este valor esté definido correctamente
-        const estado = "Pendiente"
-        const data = {
-            TipoDocumento: tipoDocumento,
-            NumeroDocumento: numeroDocumento,
-            Especialidad: especialidad,
-            IdEmpresa: empresaId,
-            EstadoTurno: estado
-        };
-
-        try {
-            const api = "http://localhost:5000/api/digiturno";
-            const response = await fetch(api, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json; charset=UTF-8',
-                    Accept: 'application/json'
-                },
-                body: JSON.stringify(data)
-            });
-
-            if (response.ok) {
-                const responseData = await response.json(); // Parsear la respuesta como JSON
-                console.log('Turno submitted successfully', responseData.data);
-
-                // Emitir el evento a través de Socket.IO
-                socket.emit('nuevoTurno', responseData.data);
-
-                // Mostrar el modal con el número de turno
-                document.getElementById('numeroTurno').textContent = responseData.data.NumberTurno;
-                openModal();
-            } else {
-                console.error('Failed to submit turno');
-            }
-        } catch (error) {
-            console.error('Error submitting turno:', error);
-        }
-    }
-
-    function openModal() {
-        document.getElementById('turnoModal').style.display = 'block';
-    }
-
-    function closeModal() {
-        document.getElementById('turnoModal').style.display = 'none';
-    }
+    var uniqueId = '@uniqueId';
 </script>
 
-<style>
-    /* Estilos para el modal */
-    .modal {
-        display: none;
-        position: fixed;
-        z-index: 1;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: rgb(0, 0, 0);
-        background-color: rgba(0, 0, 0, 0.4);
-        padding-top: 60px;
-    }
-
-    .modal-content {
-        background-color: #fefefe;
-        margin: 18% auto;
-        padding: 30px;
-        border: 1px solid #888;
-        width: 30%;
-        text-align: center;
-    }
-
-    .close {
-        /* border: 1px solid; */
-        /* color: #aaa; */
-        float: right;
-        font-size: 26px;
-        font-weight: bold;
-        display: flex;
-        align-items: baseline;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: flex-end;
-    }
-
-    .close:hover,
-    .close:focus {
-        color: black;
-        text-decoration: none;
-        cursor: pointer;
-    }
-
-    .numeroTurnoText{
-        font-size : 40px;
-        font-weight : bold
-    }
-</style>

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "QcS/1MP1mVR7CX1adGetf/3EeTa/Bw/GIFy9s/Iel3M=",
+  "Hash": "3oow4kLnV1C/kxs/du5qh2s8t8MZeBSTGiw3JITfkpc=",
   "Source": "DigiTurno",
   "BasePath": "_content/DigiTurno",
   "Mode": "Default",
@@ -53,6 +53,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "F:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\DigiTurno.bundle.scp.css"
+    },
+    {
+      "Identity": "F:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\wwwroot\\css\\modals.css",
+      "SourceId": "DigiTurno",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\wwwroot\\",
+      "BasePath": "_content/DigiTurno",
+      "RelativePath": "css/modals.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\modals.css"
     },
     {
       "Identity": "F:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\wwwroot\\css\\site.css",
@@ -129,6 +148,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "F:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\wwwroot\\js\\turnoForm.js",
+      "SourceId": "DigiTurno",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\wwwroot\\",
+      "BasePath": "_content/DigiTurno",
+      "RelativePath": "js/turnoForm.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\turnoForm.js"
     },
     {
       "Identity": "F:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",

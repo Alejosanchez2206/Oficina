@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DigiTurno")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0bc5d2231533b9f798cb02c43b79a8662645d0e9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+be34c137f14375ebedee2538bdac16e1c40db223")]
 [assembly: System.Reflection.AssemblyProductAttribute("DigiTurno")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DigiTurno")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

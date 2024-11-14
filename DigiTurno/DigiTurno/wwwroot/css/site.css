@@ -115,6 +115,108 @@ body {
         text-decoration : none
     }
 
+
+/* Estilos generales para los modales */
+.modal-add {
+    display: none; /* Inicialmente oculto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    margin-top : 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro */
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    z-index: 1000;
+}
+
+/* Contenido de los modales */
+.modal-content-add {
+    background-color: #fff;
+    padding: 20px;
+    width: 100%;
+    max-width: 400px; /* Ajuste de ancho máximo */
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.numeroTurnoText {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.conetenedor-opciones-add {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+    .conetenedor-opciones-add h2 {
+        text-align: center;
+        font-family: "Roboto", sans-serif;
+        font-weight: 400;
+        font-style: initial;
+        margin-bottom: 10%
+    }
+
+.conetenedor-opciones-add h3 {
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+}
+
+.conetenedor-opciones-add button {
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    font-style: initial;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 30px;
+    padding: 10px;
+    border-radius: 20px;
+    background: rgb(225, 236, 252);
+}
+
+.conetenedor-opciones-add label {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: initial;
+    margin-bottom: 5px
+}
+
+.conetenedor-opciones-add select {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: initial;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5px
+}
+
+.conetenedor-opciones-add input {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: initial;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    text-decoration: none
+}
+
+
+
 .contenedor-button button {
     display: inline-block;
     padding: 10px;

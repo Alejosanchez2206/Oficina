@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\DigiTurno.bundle.scp.css"
     },
     {
+      "Id": "F:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\wwwroot\\css\\modals.css",
+      "PackagePath": "staticwebassets\\css\\modals.css"
+    },
+    {
       "Id": "F:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
@@ -19,6 +23,10 @@
     {
       "Id": "F:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "F:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\wwwroot\\js\\turnoForm.js",
+      "PackagePath": "staticwebassets\\js\\turnoForm.js"
     },
     {
       "Id": "F:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\wwwroot\\lib\\bootstrap\\LICENSE",

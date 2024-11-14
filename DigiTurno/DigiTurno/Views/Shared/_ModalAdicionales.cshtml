@@ -1,0 +1,21 @@
+﻿<div id="myModal" class="modal-add" style="display:none;">
+    <div class="modal-content">
+        <span class="close" onclick="closeModalAdd()">&times;</span>
+        <div class="conetenedor-opciones-add">
+            <h3>Datos adicionales</h3>
+            <label>Nombres</label>
+            <input id="nombres" type="text" />
+            <label>Apellidos</label>
+            <input id="apellidos" type="text" />
+            <label>Genero</label>
+            <select id="genero">
+                <option value="Masculino">Masculino</option>
+                <option value="Femenino">Femenino</option>
+                <option value="Otros">Otros</option>
+            </select>
+            <label>Fecha de nacimiento</label>
+            <input id="fechaNacimiento" type="date" placeholder="Jhon Doe" />
+            <button onclick="submitFormAdd()">Continuar</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,225 @@
+﻿@{
+    ViewData["Title"] = "Asignar citas";
+    var uniqueId = ViewData["id"];
+}
+
+@await Html.PartialAsync("_ButtonAtras")
+<script src="http://localhost:5000/socket.io/socket.io.js"></script>
+
+<div class="contenedor-home">
+    @await Html.PartialAsync("_LogoEmpresa")   
+    <div class="conetenedor-opciones">
+        <h3>Ingresa tus datos para gestionar tu turno</h3>
+        <label>Motivo de la Consulta</label>
+        <select id="especialidad">
+            <option value="Medicina interna">Medicina interna</option>
+            <option value="Medicina Externa">Medicina Externa</option>
+            <option value="Psicologia">Psicologia</option>
+        </select>
+        <label>Tipo de documentos</label>
+        <select id="tipoDocumento">
+            <option value="RC">Registro civil</option>
+            <option value="TI">Tarjeta de identidad</option>
+            <option value="CC">Cedula de ciudadania</option>
+        </select>        
+        <label>Número de documento</label>
+        <input id="numeroDocumento" type="number" placeholder="123456789" />
+        <button onclick="submitForm()">Continuar</button>
+    </div>  
+</div>
+
+<!-- Modal -->
+<div id="turnoModal" class="modal" style="display:none;">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('turnoModal')">&times;</span>
+        <h2>Tu número de turno es</h2>
+        <p class="numeroTurnoText" id="numeroTurno"></p>
+        <p>Por favor, espera a que te llamen.</p>
+    </div>
+</div>
+
+<!-- The Modal --> 
+<div id="myModal" class="modal-add" style="display:none;">
+    <div class="modal-content">
+        <span class="close" onclick="closeModalAdd()">&times;</span>
+        <div class="conetenedor-opciones-add">
+            <h3>Datos adiccionales</h3>
+            <label>Nombres</label>
+            <input id="nombres" type="text" />
+            <label>Apellidos</label>
+            <input id="apellidos" type="text"/>
+            <label>Genero</label>
+            <select id="genero">
+                <option value="Masculino">Masculino</option>
+                <option value="Femenino">Femenino</option>
+                <option value="Otros">Otros</option>
+            </select>
+            <label>Fecha de nacimiento</label>
+            <input id="fechaNacimiento" type="date" placeholder="Jhon Doe" />
+            <button onclick="submitFormAdd()">Continuar</button>
+        </div>
+    </div> 
+    </div>
+
+<script>
+    const uniqueId = '@uniqueId';
+    const socket = io('http://localhost:5000'); // Asegúrate de que esta URL apunta a tu servidor Socket.IO
+
+    async function submitForm() {
+        const tipoDocumento = document.getElementById('tipoDocumento').value;
+        const numeroDocumento = document.getElementById('numeroDocumento').value;
+        const especialidad = document.getElementById('especialidad').value;
+        const empresaId = uniqueId;
+        const estado = "Pendiente";
+        const data = {
+            TipoID: tipoDocumento,
+            identificacion: numeroDocumento,
+            Especialidad: especialidad,
+            IdEmpresa: empresaId,
+            EstadoTurno: estado
+        };
+
+        try {
+            const apiSios = "http://localhost:5000/api/paciente";
+            const responseSios = await fetch(apiSios, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    Accept: 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+
+            const responseDataSios = await responseSios.json();              
+
+            if (responseDataSios.data.length !== 0) {
+
+                data.PrimerNombre = responseDataSios.data[0].Nom1Afil,
+                data.SegundoNombre = responseDataSios.data[0].Nom2Afil,
+                data.PrimerApellido = responseDataSios.data[0].Ape1Afil,
+                data.SegundoApellido = responseDataSios.data[0].Ape2Afil,
+                data.Sexo = responseDataSios.data[0].Sexo,
+                data.FechaNacimiento = responseDataSios.data[0].FechaNac
+                console.log(data)
+                const api = "http://localhost:5000/api/digiturno";
+                const response = await fetch(api, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Accept: 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                if (response.ok) {
+                    const responseData = await response.json();
+                    document.getElementById('numeroTurno').textContent = responseData.data.NumberTurno;
+                    openModal(); // Abre el modal con el número de turno
+                } else {
+                    console.error('Failed to submit turno');
+                }
+            } else {
+                openModalAdd(); // Abre el modal de datos adicionales
+            }
+        } catch (error) {
+            console.error('Error submitting turno:', error);
+        }
+    }
+
+    function openModal() {
+        document.getElementById('turnoModal').style.display = 'block';
+    }
+
+    function closeModal() {
+        document.getElementById('turnoModal').style.display = 'none';
+    }
+
+    function openModalAdd() {
+        document.getElementById('myModal').style.display = 'block';
+    }
+
+
+    function closeModalAdd() {
+        document.getElementById('myModal').style.display = 'none';
+    }
+
+    async function submitFormAdd() {
+        const tipoDocumento = document.getElementById('tipoDocumento').value;
+        const numeroDocumento = document.getElementById('numeroDocumento').value;
+        const especialidad = document.getElementById('especialidad').value;
+        const nombres = document.getElementById('nombres').value;
+        const apellidos = document.getElementById('apellidos').value;
+        const genero = document.getElementById('genero').value;
+        const fechaNacimiento = document.getElementById('fechaNacimiento').value;
+        const empresaId = uniqueId;
+        const estado = "Pendiente";
+
+        const dataRequest = {
+            TipoID: tipoDocumento,
+            identificacion: numeroDocumento,
+            Especialidad: especialidad,
+            IdEmpresa: empresaId,
+            EstadoTurno: estado,
+            nombres: nombres,
+            apellidos: apellidos,
+            Sexo: genero,
+            FechaNacimiento: fechaNacimiento
+        }
+
+        console.log(dataRequest)
+        
+    }
+
+</script>
+
+<style>
+    /* Estilos para el modal */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.4);
+        padding-top: 60px;
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 18% auto;
+        padding: 30px;
+        border: 1px solid #888;
+        width: 30%;
+        text-align: center;
+    }
+
+    
+    .close {
+        /* border: 1px solid; */
+        /* color: #aaa; */
+        float: right;
+        font-size: 26px;
+        font-weight: bold;
+        display: flex;
+        align-items: baseline;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .numeroTurnoText{
+        font-size : 40px;
+        font-weight : bold
+    }
+</style>

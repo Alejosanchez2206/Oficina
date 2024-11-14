@@ -16,15 +16,6 @@
         <input id="pass" type="password" placeholder="********" />
         <label>Consultorio</label>
         <select id="consultorio">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
         </select>
         <button onclick="submitForm()">Ingresar</button>
     </div>
@@ -66,6 +57,30 @@
             }
         } catch (error) {
             console.error('Error:', error);
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        cargarEspecialidades();
+    });
+
+
+    async function cargarEspecialidades() {
+        try {
+            const response = await fetch('http://localhost:5000/api/modulos');
+            if (!response.ok) throw new Error('Error al obtener especialidades');
+
+            const especialidades = await response.json();
+            const selectEspecialidad = document.getElementById('consultorio');
+
+            especialidades.data.forEach(especialidad => {
+                const option = document.createElement('option');
+                option.value = especialidad.Nombre;
+                option.textContent = especialidad.Nombre;
+                selectEspecialidad.appendChild(option);
+            });
+        } catch (error) {
+            console.error('Error cargando especialidades:', error);
         }
     }
 </script>
