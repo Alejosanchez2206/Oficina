@@ -1,8 +1,12 @@
 {
   "ExpandedNodes": [
     "",
-    "\\DigiTurno"
+    "\\DigiTurno",
+    "\\DigiTurno\\Controllers",
+    "\\DigiTurno\\wwwroot",
+    "\\DigiTurno\\wwwroot\\css",
+    "\\DigiTurno\\wwwroot\\js"
   ],
-  "SelectedNode": "\\DigiTurno",
+  "SelectedNode": "\\DigiTurno\\wwwroot\\css\\site.css",
   "PreviewInSolutionExplorer": false
 }

@@ -82,6 +82,7 @@ async function submitForm() {
 
 function openModal() {
     document.getElementById('turnoModal').style.display = 'block';
+   
 }
 
 function closeModal() {

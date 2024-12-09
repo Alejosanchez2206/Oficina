@@ -15,6 +15,8 @@ const pacientesRoutes = require('./routes/pacientesRouter');
 const modulosRoutes = require('./routes/modulosRoutes');
 const digiturnoRoutes = require('./routes/digiturnoRoutes');
 const medicoRouter = require('./routes/medicoRouter');
+const obtenerCitas = require('./routes/obtenerCitasControllers');
+
 // Configuraciones
 app.use(cors({
     origin: 'https://localhost:7097',
@@ -101,6 +103,8 @@ app.use('/api/paciente', pacientesRoutes);
 app.use('/api/modulos', modulosRoutes);
 app.use('/api/digiturno', digiturnoRoutes);
 app.use('/api/medico', medicoRouter);
+app.use('/api/obtenerCitas', obtenerCitas);
+app.use('/api/Historial', obtenerCitas);
 
 // Connect to Sql Server sios
 ConectiosSqlSios.connect((err) => {

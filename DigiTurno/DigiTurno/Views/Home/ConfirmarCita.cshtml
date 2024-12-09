@@ -1,36 +1,296 @@
 ﻿@{
     ViewData["Title"] = "Inicio";
+    var uniqueId = ViewData["id"];
 }
 
 <head>
     <link rel="stylesheet" href="./css/Home.css" asp-append-version="true" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="http://localhost:5000/socket.io/socket.io.js"></script>
+    <script src="~/js/turnoForm.js"></script>
 </head>
-@await Html.PartialAsync("_ButtonAtras")
-<div class="contenedor-home">
-    @await Html.PartialAsync("_LogoEmpresa")
-    <div class="conetenedor-opciones">
-        <h3>Ingresa tus datos para gestionar tu turno</h3>
-        <label>Tipo de documentos</label>
-        <select id="tipoDocumento">
-            <option value="Registro civil">Registro civil</option>
-            <option value="Tarjeta de identidad">Tarjeta de identidad</option>
-            <option value="Cedula de ciudadania">Cedula de ciudadania</option>
-        </select>
-        <label>Número de documento</label>
-        <input id="numeroDocumento" type="number" placeholder="123456789" />
-        <button onclick="submitForm()">Continuar</button>
+<body>
+    @await Html.PartialAsync("_ButtonAtras")
+    <div class="contenedor-home">
+        @await Html.PartialAsync("_LogoEmpresa")
+        <div class="conetenedor-opciones">
+            <h3>Ingresa tus datos para gestionar tu turno</h3>
+            <label>Tipo de documentos</label>
+            <select id="tipoDocumento">
+                <option value="RC">Registro Civil</option>
+                <option value="TI">Tarjeta de identidad</option>
+                <option value="CC">Cédula de ciudadanía</option>
+            </select>
+            <label>Número de documento</label>
+            <input id="numeroDocumento" type="number" placeholder="123456789" />
+            <button onclick="submitFormCitas()">Continuar</button>
+        </div>
     </div>
-</div>
+    <!-- Modal -->
+    <div class="modal fade" id="pacienteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <h5 class="fw-bold">Seleccione la cita que desea confirmar</h5>
+                    <div class="cita-info" id="historialPaciente">
+                        <!-- Los datos de las citas se cargarán aquí dinámicamente -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>  
+  
+    <div class="modal-dialog modal-dialog-centered">
+         @await Html.PartialAsync("_ModalTurno")
+    </div>
+   
+    <script>
+                 document.addEventListener('DOMContentLoaded', function () {
+            async function submitFormCitas() {
+                try {
+                    var uniqueId = '@uniqueId';
+                    const tipoDocumento = document.getElementById('tipoDocumento').value;
+                    const numeroDocumento = document.getElementById('numeroDocumento').value;
 
-<script>
-    async function submitForm() {
-        const tipoDocumento = document.getElementById('tipoDocumento').value;
-        const numeroDocumento = document.getElementById('numeroDocumento').value;
+                    const responseSios = await fetch(`http://localhost:5000/api/Historial/${numeroDocumento}/${tipoDocumento}/${uniqueId}`, {
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        }
+                    });
 
-        const data = {
-            TipoDocumento: tipoDocumento,
-            NumeroDocumento: numeroDocumento
-        };
-        console.log(data)
-    }
-</script>
+                    if (!responseSios.ok) {
+                        throw new Error(`Error: ${responseSios.status}`);
+                    }
+
+                    const dataSios = await responseSios.json();
+                    console.log(dataSios.Paciente);
+
+                    if (!dataSios.Error) {
+                        const idPaciente = dataSios.Paciente.IdPaciente;
+                        const dataPacientes = dataSios.Paciente;
+
+                        const responseHistorial = await fetch(`http://localhost:5000/api/obtenerCitas/${idPaciente}/${uniqueId}`, {
+                            method: 'GET',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                        });
+
+                        if (!responseHistorial.ok) {
+                            throw new Error(`Error: ${responseHistorial.status}`);
+                        }
+
+                        const dataHistorial = await responseHistorial.json();
+
+                        const historialContainer = document.getElementById('historialPaciente');
+                        historialContainer.innerHTML = '';
+
+                        if (dataHistorial.ListaCitas.length > 0) {
+                            dataHistorial.ListaCitas.forEach((cita) => {
+                                const dataPaciente = {
+                                    TipoID: dataPacientes.TipoIdentificacion,
+                                    identificacion: dataPacientes.NumeroIdentificacion,
+                                    Especialidad: cita.Especialidad,
+                                    IdEmpresa: uniqueId,
+                                    EstadoTurno: "Pendiente"
+                                };
+
+                                const citaHTML = `
+                                    <div class="info-cita mb-3 p-3 border rounded">
+                                        <div class="info-item">
+                                            <span class="info-title">Fecha y Hora de Cita:</span>
+                                            <span class="info-value">${cita.Fecha}</span>
+                                        </div>
+                                        <div class="info-item">
+                                            <span class="info-title">Prestador:</span>
+                                            <span class="info-value">${cita.Prestador}</span>
+                                        </div>
+                                        <div class="info-item">
+                                            <span class="info-title">Especialidad:</span>
+                                            <span class="info-value">${cita.Especialidad}</span>
+                                        </div>
+                                        <button class="btn btn-success mt-2 confirmar-cita" data-id='${JSON.stringify(dataPaciente)}'>CONFIRMAR</button>
+                                    </div>
+                                `;
+                                historialContainer.innerHTML += citaHTML;
+                            });
+
+                            document.querySelectorAll('.confirmar-cita').forEach((boton) => {
+                                boton.addEventListener('click', (e) => confirmarCita(JSON.parse(e.target.getAttribute('data-id'))));
+                            });
+                        } else {
+                            historialContainer.innerHTML = `<p class="text-danger">No se encontraron citas para el paciente.</p>`;
+                        }
+
+                        var modal = new bootstrap.Modal(document.getElementById('pacienteModal'));
+                        modal.show();
+                    } else {
+                        throw new Error('Error al obtener los datos del paciente');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                }
+            }
+
+            // Asigna la función al objeto window para que sea accesible globalmente
+            window.submitFormCitas = submitFormCitas;
+
+            async function confirmarCita(data) {
+                try {
+                    console.log(data);
+                    var socket = io.connect('http://localhost:5000'); // Conectar al servidor en el puerto 5000
+                    const UrlApi = 'http://localhost:5000';
+
+                    const responseSios = await fetch(UrlApi + "/api/paciente", {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                    });
+
+                    if (!responseSios.ok) {
+                        throw new Error(`Error: ${responseSios.status}`);
+                    }
+
+                    const responseDataSios = await responseSios.json();
+
+                    if (responseDataSios.data.length != 0) {
+                        const getCurrentDateTime = () => {
+                            const now = new Date();
+                            return now.toISOString();
+                        };
+
+                        const turnoData = {
+                            ...data,
+                            Turno: "GN",
+                            FechaInicio: getCurrentDateTime(),
+                            Estado: 1,
+                            Paciente: `${responseDataSios.data[0].PrimerNombre} ${responseDataSios.data[0].SegundoNombre} ${responseDataSios.data[0].PrimerApellido} ${responseDataSios.data[0].SegundoApellido}`,
+                            IdPaciente: responseDataSios.data[0].identificacion,
+                            FechaNacimiento: responseDataSios.data[0].FechaNac
+                        };
+
+                        const responseTurno = await fetch(UrlApi + "/api/digiturno", {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Accept': 'application/json'
+                            },
+                            body: JSON.stringify(turnoData)
+                        });
+
+                        const responseData = await responseTurno.json();
+
+                        if (responseData.data.length != 0) {
+                            // Emitir el evento a través de Socket.IO
+                            socket.emit('nuevoTurno', responseData.data);
+
+                            document.getElementById('numeroTurno').textContent = responseData.data.NroTurno;
+                            openModal();
+                            closeModalAdd();
+                        } else {
+                            console.error('Failed to submit turno');
+                        }
+                    } else {
+                        openModalAdd();
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                }
+            }
+
+            function openModal() {
+                document.getElementById('turnoModal').style.display = 'block';
+            }
+
+            function closeModal() {
+                document.getElementById('turnoModal').style.display = 'none';
+            }
+
+            function openModalAdd() {
+                document.getElementById('modalAdd').style.display = 'block';
+            }
+
+            function closeModalAdd() {
+                document.getElementById('modalAdd').style.display = 'none';
+            }
+        });
+
+    </script>
+   
+    <style>
+        .modal-body {
+            padding: 20px;
+        }
+
+        h5 {
+            color: #2c3e50;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .cita-info {
+            background-color: #f5faff;
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .info-item {
+            background-color: #e3f2fd;
+            border-radius: 8px;
+            padding: 10px;
+            margin: 8px 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .info-title {
+            display: block;
+            font-weight: bold;
+            color: #007bff;
+            margin-bottom: 5px;
+        }
+
+        .info-value {
+            display: block;
+            color: #34495e;
+            font-size: 16px;
+        }
+
+        button.btn-primary {
+            background-color: #007bff;
+            border: none;
+            font-size: 16px;
+            padding: 10px 20px;
+            border-radius: 8px;
+            color: #fff;
+            box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+            button.btn-primary:hover {
+                background-color: #0056b3;
+            }
+
+        .modal-content {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .modal-dialog-centered {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: calc(100% - 1rem);
+        }
+
+    </style>
+</body>

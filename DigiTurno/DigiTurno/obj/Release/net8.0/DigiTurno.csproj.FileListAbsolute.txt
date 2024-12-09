@@ -36,3 +36,15 @@ F:\Tiserium\Oficina\DigiTurno\DigiTurno\obj\Release\net8.0\refint\DigiTurno.dll
 F:\Tiserium\Oficina\DigiTurno\DigiTurno\obj\Release\net8.0\DigiTurno.pdb
 F:\Tiserium\Oficina\DigiTurno\DigiTurno\obj\Release\net8.0\DigiTurno.genruntimeconfig.cache
 F:\Tiserium\Oficina\DigiTurno\DigiTurno\obj\Release\net8.0\ref\DigiTurno.dll
+E:\Tiserium\Oficina\DigiTurno\DigiTurno\obj\Release\net8.0\DigiTurno.csproj.AssemblyReference.cache
+E:\Tiserium\Oficina\DigiTurno\DigiTurno\obj\Release\net8.0\DigiTurno.GeneratedMSBuildEditorConfig.editorconfig
+E:\Tiserium\Oficina\DigiTurno\DigiTurno\obj\Release\net8.0\DigiTurno.AssemblyInfoInputs.cache
+E:\Tiserium\Oficina\DigiTurno\DigiTurno\obj\Release\net8.0\DigiTurno.AssemblyInfo.cs
+E:\Tiserium\Oficina\DigiTurno\DigiTurno\obj\Release\net8.0\DigiTurno.csproj.CoreCompileInputs.cache
+E:\Tiserium\Oficina\DigiTurno\DigiTurno\obj\Release\net8.0\DigiTurno.MvcApplicationPartsAssemblyInfo.cache
+E:\Tiserium\Oficina\DigiTurno\DigiTurno\obj\Release\net8.0\DigiTurno.RazorAssemblyInfo.cache
+E:\Tiserium\Oficina\DigiTurno\DigiTurno\obj\Release\net8.0\DigiTurno.RazorAssemblyInfo.cs
+E:\Tiserium\Oficina\DigiTurno\DigiTurno\obj\Release\net8.0\DigiTurno.sourcelink.json
+E:\Tiserium\Oficina\DigiTurno\DigiTurno\obj\Release\net8.0\DigiTurno.dll
+E:\Tiserium\Oficina\DigiTurno\DigiTurno\obj\Release\net8.0\refint\DigiTurno.dll
+E:\Tiserium\Oficina\DigiTurno\DigiTurno\obj\Release\net8.0\DigiTurno.pdb

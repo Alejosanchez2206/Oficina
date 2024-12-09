@@ -17,8 +17,8 @@
         <div class="row">
             <div class="col-md-4 turnos-table">
                 <div class="turno-row header-row">
-                    <div class="turno-cell"><strong>MODULO</strong></div>
                     <div class="turno-cell"><strong>PACIENTE</strong></div>
+                    <div class="turno-cell"><strong>MODULO</strong></div>                   
                 </div>
                 <!-- Agrega más filas según sea necesario -->
             </div>
@@ -35,9 +35,7 @@
             <p id="consultorio" class="consultorio-number"></p>
         </div>
     </div>
-
-    
-
+     
     <style>
         /* Modal General */
         .modal {
@@ -194,9 +192,9 @@
 
         // Crear una nueva fila de turnos
         var turnoRow = `
-            <div class="turno-row">
-                <div class="turno-cell">${turno.Consultorio}</div>
-                <div class="turno-cell">${turno.Paciente}</div>             
+            <div class="turno-row">               
+                <div class="turno-cell">${turno.Paciente}</div>
+                         <div class="turno-cell">${turno.Consultorio}</div>
             </div>`;
 
         // Insertar la nueva fila después de la fila de encabezado

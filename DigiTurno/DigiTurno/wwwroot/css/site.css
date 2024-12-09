@@ -216,6 +216,41 @@ body {
 }
 
 
+.conetenedor-opciones button {
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    font-style: initial;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 30px;
+    padding: 10px;
+    border-radius: 20px;
+    text-align: center; /* Centra el texto horizontalmente */
+    text-transform: uppercase; /* Transforma el texto a mayúsculas */
+    display: flex; /* Utiliza flexbox */
+    align-items: center; /* Alinea verticalmente */
+    justify-content: center; /* Alinea horizontalmente */
+}
+
+.conetenedor-opciones button {
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    font-style: initial;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 30px;
+    padding: 10px;
+    border-radius: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 76%;
+    margin-left: 12%;
+    margin-right: 12%;
+}
+
 
 .contenedor-button button {
     display: inline-block;
@@ -229,8 +264,9 @@ body {
     color: aliceblue;
     border: none;
     outline: none;
-    font-size : 20px
+    font-size: 20px
 }
+
 
 .fixed-btn {
     position: absolute; /* Hace que el botón esté fijo en el contenedor relativo */
@@ -250,19 +286,21 @@ body {
 .turnos-table {
     background-color: #e0eafc;
     border-radius: 10px;
-    padding: 20px;   
+    padding: 8px;   
+    align-items : flex-start
   
 }
 
 .turno-row {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     padding: 10px 0;
 }
 
 .turno-cell {
     flex: 1;
-    text-align: center;
+    text-align: start;
+    margin-right: 15px;
 }
 
 .estado-espera {
@@ -426,4 +464,40 @@ video {
     width: 100%;
     height: auto;
     border-radius: 5px;
+}
+
+
+@media (min-width: 1280px) and (min-height: 720px) {
+  
+}
+
+
+@media (max-width: 768px) {
+    .contenedor-home {
+        margin-top: 20%;
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+
+    .contenedor-img img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%
+    }
+   
+}
+
+@media (max-width: 480px) {
+   
+    .contenedor-home {
+        margin-top: 40%;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .contenedor-img img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%
+    }
 }

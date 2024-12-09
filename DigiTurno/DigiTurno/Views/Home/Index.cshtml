@@ -10,7 +10,7 @@
     @await Html.PartialAsync("_LogoEmpresa")
     <div class="conetenedor-opciones">
         <h2>¿Qué deseas hacer hoy?</h2>
-        <button onclick="location.href='@Url.Action("AsignarCita", "Home", new { id = uniqueId })'">Asignar cita</button>
+        <button onclick="location.href='@Url.Action("AsignarCita", "Home", new { id = uniqueId })'">Asignar Turno</button>
         <button onclick="location.href='@Url.Action("ConfirmarCita", "Home", new { id = uniqueId })'">Confirmar cita</button>
     </div>
    
