@@ -9,12 +9,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="http://localhost:5000/socket.io/socket.io.js"></script>
     <script src="~/js/turnoForm.js"></script>
+    <link rel="stylesheet" href="~/css/modals.css" />
 </head>
 <body>
     @await Html.PartialAsync("_ButtonAtras")
     <div class="contenedor-home">
         @await Html.PartialAsync("_LogoEmpresa")
-        <div class="conetenedor-opciones">
+        <div class="conetenedor-opciones" id="form-section">
             <h3>Ingresa tus datos para gestionar tu turno</h3>
             <label>Tipo de documentos</label>
             <select id="tipoDocumento">
@@ -26,24 +27,19 @@
             <input id="numeroDocumento" type="number" placeholder="123456789" />
             <button onclick="submitFormCitas()">Continuar</button>
         </div>
-    </div>
-    <!-- Modal -->
-    <div class="modal fade" id="pacienteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body text-center">
-                    <h5 class="fw-bold">Seleccione la cita que desea confirmar</h5>
-                    <div class="cita-info" id="historialPaciente">
-                        <!-- Los datos de las citas se cargarán aquí dinámicamente -->
-                    </div>
-                </div>
+        <div class="conetenedor-opciones" id="result-section" style="display: none;">
+            <h5 class="fw-bold">Seleccione la cita que desea confirmar</h5>
+            <div class="cita-info" id="historialPaciente">
+                <!-- Los datos de las citas se cargarán aquí dinámicamente -->
             </div>
         </div>
-    </div>  
-  
-    <div class="modal-dialog modal-dialog-centered">
-         @await Html.PartialAsync("_ModalTurno")
+
     </div>
+    <!-- Modal -->    
+  
+  
+         @await Html.PartialAsync("_ModalTurno")
+  
    
     <script>
                  document.addEventListener('DOMContentLoaded', function () {
@@ -112,7 +108,7 @@
                                             <span class="info-title">Especialidad:</span>
                                             <span class="info-value">${cita.Especialidad}</span>
                                         </div>
-                                        <button class="btn btn-success mt-2 confirmar-cita" data-id='${JSON.stringify(dataPaciente)}'>CONFIRMAR</button>
+                                        <button class="confirmar-cita" data-id='${JSON.stringify(dataPaciente)}'>CONFIRMAR</button>
                                     </div>
                                 `;
                                 historialContainer.innerHTML += citaHTML;
@@ -125,9 +121,11 @@
                             historialContainer.innerHTML = `<p class="text-danger">No se encontraron citas para el paciente.</p>`;
                         }
 
-                        var modal = new bootstrap.Modal(document.getElementById('pacienteModal'));
-                        modal.show();
-                    } else {
+                       // Mostrar la sección de resultados y ocultar el formulario
+                        document.getElementById('form-section').classList.add('d-none');
+                       document.getElementById('result-section').style.display = 'block';
+
+                        } else {
                         throw new Error('Error al obtener los datos del paciente');
                     }
                 } catch (error) {
@@ -224,10 +222,7 @@
     </script>
    
     <style>
-        .modal-body {
-            padding: 20px;
-        }
-
+       
         h5 {
             color: #2c3e50;
             font-size: 18px;
@@ -279,18 +274,6 @@
                 background-color: #0056b3;
             }
 
-        .modal-content {
-            border: none;
-            border-radius: 15px;
-            overflow: hidden;
-        }
-
-        .modal-dialog-centered {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: calc(100% - 1rem);
-        }
 
     </style>
 </body>

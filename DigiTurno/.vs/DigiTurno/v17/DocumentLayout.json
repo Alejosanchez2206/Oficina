@@ -7,6 +7,10 @@
       "RelativeMoniker": "D:0:0:{7A6229DD-4E4B-4A50-B112-F9315EB6DC31}|DigiTurno\\DigiTurno.csproj|solutionrelative:digiturno\\views\\home\\confirmarcita.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{7A6229DD-4E4B-4A50-B112-F9315EB6DC31}|DigiTurno\\DigiTurno.csproj|e:\\tiserium\\oficina\\digiturno\\digiturno\\views\\home\\asignarcita.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7A6229DD-4E4B-4A50-B112-F9315EB6DC31}|DigiTurno\\DigiTurno.csproj|solutionrelative:digiturno\\views\\home\\asignarcita.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{7A6229DD-4E4B-4A50-B112-F9315EB6DC31}|DigiTurno\\DigiTurno.csproj|e:\\tiserium\\oficina\\digiturno\\digiturno\\views\\shared\\_modalturno.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{7A6229DD-4E4B-4A50-B112-F9315EB6DC31}|DigiTurno\\DigiTurno.csproj|solutionrelative:digiturno\\views\\shared\\_modalturno.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -45,7 +49,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -62,6 +66,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "AsignarCita.cshtml",
+              "DocumentMoniker": "E:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\Views\\Home\\AsignarCita.cshtml",
+              "RelativeDocumentMoniker": "DigiTurno\\Views\\Home\\AsignarCita.cshtml",
+              "ToolTip": "E:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\Views\\Home\\AsignarCita.cshtml",
+              "RelativeToolTip": "DigiTurno\\Views\\Home\\AsignarCita.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-10T19:38:36.955Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "_ModalTurno.cshtml",
               "DocumentMoniker": "E:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\Views\\Shared\\_ModalTurno.cshtml",
               "RelativeDocumentMoniker": "DigiTurno\\Views\\Shared\\_ModalTurno.cshtml",
@@ -73,7 +90,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "ScreenTurno.cshtml",
               "DocumentMoniker": "E:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\Views\\Home\\ScreenTurno.cshtml",
               "RelativeDocumentMoniker": "DigiTurno\\Views\\Home\\ScreenTurno.cshtml",
@@ -85,7 +102,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "PhysicalFileProvider.cs",
               "DocumentMoniker": "C:\\Users\\alejo\\AppData\\Local\\Temp\\.vsdbgsrc\\198bf116f7049a2e3e03f29a33fa5180331819d2741ad4116d0479027e6bf834\\PhysicalFileProvider.cs",
               "ToolTip": "C:\\Users\\alejo\\AppData\\Local\\Temp\\.vsdbgsrc\\198bf116f7049a2e3e03f29a33fa5180331819d2741ad4116d0479027e6bf834\\PhysicalFileProvider.cs [Solo lectura]",
@@ -96,7 +113,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "DigiTurno.csproj",
               "DocumentMoniker": "E:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\DigiTurno.csproj",
               "RelativeDocumentMoniker": "DigiTurno\\DigiTurno.csproj",
@@ -108,7 +125,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "modals.css",
               "DocumentMoniker": "E:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\wwwroot\\css\\modals.css",
               "RelativeDocumentMoniker": "DigiTurno\\wwwroot\\css\\modals.css",
@@ -126,14 +143,14 @@
               "RelativeDocumentMoniker": "DigiTurno\\Views\\Home\\ConfirmarCita.cshtml",
               "ToolTip": "E:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\Views\\Home\\ConfirmarCita.cshtml",
               "RelativeToolTip": "DigiTurno\\Views\\Home\\ConfirmarCita.cshtml",
-              "ViewState": "AgIAAA4BAAAAAAAAAAAAACUBAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAAwH4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-11-29T15:43:08.988Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "_ButtonAtras.cshtml",
               "DocumentMoniker": "E:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\Views\\Shared\\_ButtonAtras.cshtml",
               "RelativeDocumentMoniker": "DigiTurno\\Views\\Shared\\_ButtonAtras.cshtml",
@@ -145,7 +162,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "site.css",
               "DocumentMoniker": "E:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\wwwroot\\css\\site.css",
               "RelativeDocumentMoniker": "DigiTurno\\wwwroot\\css\\site.css",
@@ -157,7 +174,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "turnoForm.js",
               "DocumentMoniker": "E:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\wwwroot\\js\\turnoForm.js",
               "RelativeDocumentMoniker": "DigiTurno\\wwwroot\\js\\turnoForm.js",
