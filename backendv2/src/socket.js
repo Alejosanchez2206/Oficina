@@ -6,7 +6,7 @@ module.exports = {
     io = require('socket.io')(server);
     console.log('Socket initialized');
     io.on('connection', (socket) => {
-      console.log('A user connected');
+      console.log('A user connected');      
       
       // Aquí puedes manejar los eventos de socket
       socket.on('disconnect', () => {

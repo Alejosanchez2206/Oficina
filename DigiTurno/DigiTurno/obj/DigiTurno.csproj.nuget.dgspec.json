@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\DigiTurno.csproj": {}
+    "C:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\DigiTurno.csproj": {}
   },
   "projects": {
-    "E:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\DigiTurno.csproj": {
+    "C:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\DigiTurno.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\DigiTurno.csproj",
+        "projectUniqueName": "C:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\DigiTurno.csproj",
         "projectName": "DigiTurno",
-        "projectPath": "E:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\DigiTurno.csproj",
+        "projectPath": "C:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\DigiTurno.csproj",
         "packagesPath": "C:\\Users\\alejo\\.nuget\\packages\\",
-        "outputPath": "E:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\obj\\",
+        "outputPath": "C:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -50,9 +50,15 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
-            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+            "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[8.0.4, )"
+              "version": "[9.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.0, )"
             }
           },
           "imports": [

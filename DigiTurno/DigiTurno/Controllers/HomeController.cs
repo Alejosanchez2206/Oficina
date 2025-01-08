@@ -93,6 +93,20 @@ namespace DigiTurno.Controllers
             return View();
         }
 
+        [HttpGet("admin/{id}")]
+        public IActionResult Admin(string? id)
+        {
+            if (!string.IsNullOrEmpty(id))
+            {
+                ViewData["id"] = id;
+            }
+            else
+            {
+                ViewData["id"] = "";
+            }
+            return View();
+        }
+
         [HttpGet("dassboard/{id}")]
         public IActionResult Dasssboard(string? id)
         {
@@ -127,7 +141,50 @@ namespace DigiTurno.Controllers
 
             return View();
         }
-       
+
+        [HttpGet("modulo/{id}")]
+        public IActionResult Modulo(string? id)
+        {
+            if (!string.IsNullOrEmpty(id))
+            {
+                ViewData["id"] = id;
+            }
+            else
+            {
+                ViewData["id"] = "";
+            }
+            return View();
+        }
+
+
+        [HttpGet("regionales/{id}")]
+        public IActionResult Regionales(string? id)
+        {
+            if (!string.IsNullOrEmpty(id))
+            {
+                ViewData["id"] = id;
+            }
+            else
+            {
+                ViewData["id"] = "";
+            }
+            return View();
+        }
+
+        [HttpGet("sedes/{id}")]
+        public IActionResult Sedes(string? id)
+        {
+            if (!string.IsNullOrEmpty(id))
+            {
+                ViewData["id"] = id;
+            }
+            else
+            {
+                ViewData["id"] = "";
+            }
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

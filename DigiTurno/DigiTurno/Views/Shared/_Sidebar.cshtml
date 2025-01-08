@@ -1,0 +1,28 @@
+﻿
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Linking Google font link for icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <link rel="stylesheet" href="~/css/sidebar.css" />
+</head>
+<body>
+    <aside class="sidebar">
+        <ul class="links">
+            <h4>General</h4>
+            <li>
+                <span class="material-symbols-outlined">dashboard</span>
+                <a asp-controller="Home" asp-action="Modulo" asp-route-id="@ViewData["id"]">Modulos</a>
+            </li>
+            <li>
+                <span class="material-symbols-outlined">show_chart</span>
+                <a asp-controller="Home" asp-action="Regionales" asp-route-id="@ViewData["id"]">Regionales</a>
+            </li>
+            <li>
+                <span class="material-symbols-outlined">flag</span>
+                <a asp-controller="Home" asp-action="Sedes" asp-route-id="@ViewData["id"]">Sedes</a>
+            </li>
+            <hr>          
+        </ul>
+    </aside>
+</body>

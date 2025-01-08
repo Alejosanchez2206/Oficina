@@ -1,0 +1,89 @@
+﻿@{
+    var uniqueId = ViewData["id"];
+}
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/css/sidebar.css" />
+</head>
+
+<body>
+    @await Html.PartialAsync("_Sidebar")
+    <div class="container-wrapper">
+        <main>
+            <div class="tickets-header">
+                <h2>Modulos</h2>
+                <!-- Botón Agregar -->
+                <button id="btnAgregar" class="btn-agregar">
+                    <i class="fas fa-plus"></i> Agregar
+                </button>
+            </div>
+            <!-- Modal para Agregar/Editar -->
+            <div id="moduloModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2 id="modalTitle">Nuevo Módulo</h2>
+                    <form id="moduloForm">
+                        <div class="form-group">
+                            <label for="codigo">Código:</label>
+                            <input type="text" id="codigo" name="codigo" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="nombre">Nombre:</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="unfuncional">Unidad Funcional:</label>
+                            <input type="number" id="unfuncional" name="unfuncional" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="descripcion">Descripción:</label>
+                            <textarea id="descripcion" name="descripcion" required></textarea>
+                        </div>                       
+                        <div class="form-group">
+                            <label for="estado">Estado:</label>
+                            <select id="estado" name="estado">
+                                <option value="true">Activo</option>
+                                <option value="false">Inactivo</option>
+                            </select>
+                        </div>
+                        <div class="form-actions">                            
+                            <button type="button" class="btn-cancelar" onclick="closeModal()">Cancelar</button>
+                            <button type="submit" class="btn-guardar">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>U Funcional</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Datos de la tabla aquí -->
+                </tbody>
+            </table>
+            <!-- Agregamos la paginación -->
+            <div class="pagination">
+                <button id="prevPage" class="page-btn">Anterior</button>
+                <span id="pageInfo">Página <span id="currentPage">1</span> de <span id="totalPages">1</span></span>
+                <button id="nextPage" class="page-btn">Siguiente</button>
+            </div>
+        </main>
+    </div>
+</body>
+
+
+<script src="~/js/modulo.js"></script>
+
+
+<script>
+    var uniqueId = '@uniqueId';
+</script>
+

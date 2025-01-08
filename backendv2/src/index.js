@@ -11,11 +11,14 @@ const app = express();
 const server = http.createServer(app);
 
 //Importacion Routes 
-const pacientesRoutes = require('./routes/pacientesRouter');
+const pacientesRoutes = require('./routes/pacientesRoutes');
 const modulosRoutes = require('./routes/modulosRoutes');
+const sedesRoutes = require('./routes/sedesRoutes');
+const regionalesRoutes = require('./routes/regionalesRoutes');
 const digiturnoRoutes = require('./routes/digiturnoRoutes');
 const medicoRouter = require('./routes/medicoRouter');
 const obtenerCitas = require('./routes/obtenerCitasControllers');
+const adminRoutes = require('./routes/adminRoutes');
 
 // Configuraciones
 app.use(cors({
@@ -101,11 +104,13 @@ app.use(express.json());
 // Routes
 app.use('/api/paciente', pacientesRoutes);
 app.use('/api/modulos', modulosRoutes);
+app.use('/api/sedes', sedesRoutes);
+app.use('/api/regionales', regionalesRoutes);
 app.use('/api/digiturno', digiturnoRoutes);
 app.use('/api/medico', medicoRouter);
 app.use('/api/obtenerCitas', obtenerCitas);
 app.use('/api/Historial', obtenerCitas);
-
+app.use('/api/admin', adminRoutes);
 // Connect to Sql Server sios
 ConectiosSqlSios.connect((err) => {
     if (err) {

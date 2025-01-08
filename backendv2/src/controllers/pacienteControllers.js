@@ -1,4 +1,4 @@
-const { getPacientes } = require('../model/pacientes');
+const { getPacientes } = require('../services/pacientes');
 exports.getPaciente = async (req, res) => {
     try {
         const result = await getPacientes(req.body);

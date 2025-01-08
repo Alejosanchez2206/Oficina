@@ -1,4 +1,4 @@
-const { generarTurno, getTurnos } = require('../model/consulta');
+const { generarTurno, getTurnos } = require('../services/consulta');
 
 exports.crearTurno = async (req, res) => {
   try {

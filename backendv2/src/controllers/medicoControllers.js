@@ -1,4 +1,4 @@
-const { login, createMedico } = require('../model/medico');
+const { login, createMedico } = require('../services/medico');
 exports.crearMedico = async (req, res) => {
     try {
         const medico = await createMedico(req.body);

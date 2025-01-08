@@ -1,0 +1,28 @@
+﻿@{
+    var uniqueId = ViewData["id"];
+}
+
+@* _Tablet.cshtml *@
+@model dynamic
+
+<script src="http://localhost:5000/socket.io/socket.io.js"></script>
+
+
+<main>
+    <div class="tickets-header">
+        <h2>@Model.Titulo</h2>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Código</th>                
+                <th>Descripción</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Más filas aquí -->
+        </tbody>
+    </table>
+</main>

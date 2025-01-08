@@ -1,0 +1,53 @@
+﻿@{
+    var uniqueId = ViewData["id"];
+}
+
+<head>
+    <link rel="stylesheet" href="./css/Home.css" asp-append-version="true" />
+</head>
+<div class="contenedor-home">
+    @await Html.PartialAsync("_LogoEmpresa")
+    <div class="conetenedor-opciones">
+        <h3>Bienvenido de vuelta</h3>
+        <label>Usuario</label>
+        <input id="user" type="text" placeholder="JhoeDoe@correo.com" />
+        <label>Contraseña</label>
+        <input id="pass" type="password" placeholder="********" />
+        <button onclick="submitForm()">Ingresar</button>
+    </div>
+</div>
+
+<script>
+     async function submitForm() {
+        const uniqueId = '@uniqueId';
+        const user = document.getElementById('user').value;
+        const pass = document.getElementById('pass').value;
+    
+        const data = {
+            Email: user,
+            PassWord: pass,
+        };
+
+        try {
+            const response = await fetch('http://localhost:5000/api/admin/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+             const result = await response.json();
+            if (result.success == 200) {
+               
+                // Guardar los datos en localStorage
+                localStorage.setItem('token', result.token);
+                // Redirigir al dashboard con el ID único
+                window.location.href = `/modulo/${uniqueId}`;
+            } else {
+                console.log('Error en la autenticación.');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
+</script>
