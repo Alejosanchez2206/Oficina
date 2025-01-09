@@ -33,6 +33,10 @@
       "PackagePath": "staticwebassets\\js\\modulo.js"
     },
     {
+      "Id": "C:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\wwwroot\\js\\regionales.js",
+      "PackagePath": "staticwebassets\\js\\regionales.js"
+    },
+    {
       "Id": "C:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\wwwroot\\js\\sedes.js",
       "PackagePath": "staticwebassets\\js\\sedes.js"
     },

@@ -111,6 +111,7 @@ app.use('/api/medico', medicoRouter);
 app.use('/api/obtenerCitas', obtenerCitas);
 app.use('/api/Historial', obtenerCitas);
 app.use('/api/admin', adminRoutes);
+
 // Connect to Sql Server sios
 ConectiosSqlSios.connect((err) => {
     if (err) {

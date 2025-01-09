@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Ac6yUf8HbRD7e+/F/HDgBtm/56YG4IRiIQ0gS8rjruI=",
+  "Hash": "XO0b7TO3NDJ+BdNjqFFqg2CLBTpvDeMa1l5dYEtKcZk=",
   "Source": "DigiTurno",
   "BasePath": "_content/DigiTurno",
   "Mode": "Default",
@@ -206,6 +206,27 @@
       "OriginalItemSpec": "wwwroot\\js\\modulo.js"
     },
     {
+      "Identity": "C:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\wwwroot\\js\\regionales.js",
+      "SourceId": "DigiTurno",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\wwwroot\\",
+      "BasePath": "_content/DigiTurno",
+      "RelativePath": "js/regionales#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "zlw48gczmb",
+      "Integrity": "6bnLgfapBEK3w6X8CrJtPMdrk8HecH8g0WvcDAzynZM=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\regionales.js"
+    },
+    {
       "Identity": "C:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\wwwroot\\js\\sedes.js",
       "SourceId": "DigiTurno",
       "SourceType": "Discovered",
@@ -220,8 +241,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "8dufs7ju3q",
-      "Integrity": "hPB3rLgwKb7lJrLKVQg0OafXoidK6KDrcjwe4bgEAts=",
+      "Fingerprint": "lwiiu3yr0u",
+      "Integrity": "NdoWfWgNN7Yj/fZ2veNTChW6Pg6fx22PM7pWPreLqRg=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\sedes.js"
@@ -2206,8 +2227,8 @@
       ]
     },
     {
-      "Route": "js/sedes.8dufs7ju3q.js",
-      "AssetFile": "C:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\wwwroot\\js\\sedes.js",
+      "Route": "js/regionales.js",
+      "AssetFile": "C:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\wwwroot\\js\\regionales.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2216,7 +2237,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "7394"
+          "Value": "7368"
         },
         {
           "Name": "Content-Type",
@@ -2224,11 +2245,48 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"hPB3rLgwKb7lJrLKVQg0OafXoidK6KDrcjwe4bgEAts=\""
+          "Value": "\"6bnLgfapBEK3w6X8CrJtPMdrk8HecH8g0WvcDAzynZM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 08 Jan 2025 20:34:11 GMT"
+          "Value": "Wed, 08 Jan 2025 22:05:16 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-6bnLgfapBEK3w6X8CrJtPMdrk8HecH8g0WvcDAzynZM="
+        }
+      ]
+    },
+    {
+      "Route": "js/regionales.zlw48gczmb.js",
+      "AssetFile": "C:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\wwwroot\\js\\regionales.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7368"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"6bnLgfapBEK3w6X8CrJtPMdrk8HecH8g0WvcDAzynZM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 08 Jan 2025 22:05:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2238,15 +2296,15 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "8dufs7ju3q"
+          "Value": "zlw48gczmb"
         },
         {
           "Name": "label",
-          "Value": "js/sedes.js"
+          "Value": "js/regionales.js"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-hPB3rLgwKb7lJrLKVQg0OafXoidK6KDrcjwe4bgEAts="
+          "Value": "sha256-6bnLgfapBEK3w6X8CrJtPMdrk8HecH8g0WvcDAzynZM="
         }
       ]
     },
@@ -2261,7 +2319,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "7394"
+          "Value": "7339"
         },
         {
           "Name": "Content-Type",
@@ -2269,11 +2327,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"hPB3rLgwKb7lJrLKVQg0OafXoidK6KDrcjwe4bgEAts=\""
+          "Value": "\"NdoWfWgNN7Yj/fZ2veNTChW6Pg6fx22PM7pWPreLqRg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 08 Jan 2025 20:34:11 GMT"
+          "Value": "Wed, 08 Jan 2025 22:06:02 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2283,7 +2341,52 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-hPB3rLgwKb7lJrLKVQg0OafXoidK6KDrcjwe4bgEAts="
+          "Value": "sha256-NdoWfWgNN7Yj/fZ2veNTChW6Pg6fx22PM7pWPreLqRg="
+        }
+      ]
+    },
+    {
+      "Route": "js/sedes.lwiiu3yr0u.js",
+      "AssetFile": "C:\\Tiserium\\Oficina\\DigiTurno\\DigiTurno\\wwwroot\\js\\sedes.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7339"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"NdoWfWgNN7Yj/fZ2veNTChW6Pg6fx22PM7pWPreLqRg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 08 Jan 2025 22:06:02 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "lwiiu3yr0u"
+        },
+        {
+          "Name": "label",
+          "Value": "js/sedes.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-NdoWfWgNN7Yj/fZ2veNTChW6Pg6fx22PM7pWPreLqRg="
         }
       ]
     },
